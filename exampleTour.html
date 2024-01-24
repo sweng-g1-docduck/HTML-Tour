@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- Example guided tour presented through some HTML slides
+  -- Everything stored in one page
+  -->
+
+<html>
+        <head>
+                <title>Mockup Guided Tour</title>
+
+<style>
+* { margin: 0; box-sizing: border-box }
+body {
+        display: grid;
+        grid-template-rows: 10vh 90vh;
+        grid-template-columns: 100vw;
+}
+
+nav {
+        grid-row: 1 / 2;
+        background-color: cornflowerblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 2.666rem;
+        color: white
+}
+
+.slide-container {
+        grid-row: 2 / 3;
+        display: grid;
+        grid-template-rows: 80% 20%;
+        grid-template-columns: 100%;
+}
+
+.slide-container > .slide-conts {
+        border: 1px solid black;
+        margin: 1vh;
+        grid-row: 1 / 2;
+        display: none;
+        padding: 2vh;
+}
+
+.slide-conts h1 {
+        font-size: 2.333rem;
+}
+
+.slide-conts h2 {
+        font-size: 1.888rem;
+}
+
+.slide-conts p, li {
+        font-size: 1.333rem;
+}
+
+.slide-conts#active {
+        display: inline-block;
+}
+
+.slide-container > .slide-buttons {
+        grid-row: 2 / 3;
+        background-color: cornflowerblue;
+
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+}
+
+</style>
+        </head>
+        <body>
+                <nav>
+                        <p class="nav-text">Guided Tour</p>
+                </nav>
+
+                <div class="slide-container">
+                                <div class="slide-conts" id="active" data-current="a1" data-next="a2">
+                                        <h1>Test Slide!</h1>
+                                        <br>
+                                        <p> Some text about the slide</p>
+                                        <br>
+                                        <ul>
+                                                <li> Bulletpoints!</li>
+                                                <li>More!</li>
+                                        </ul>
+                                </div>
+
+                                <div class="slide-conts" data-current="a2" data-next="a3">
+                                        <h1>Test Slide 2!</h1>
+
+                                        <p> Some text about the slide</p>
+                                        <img src="hwg.png" />
+                                </div>
+
+                                <div class="slide-conts" data-current="a3" data-next="a1">
+                                        <h1>Test Slide 3!</h1>
+
+                                        <p> Some text about the slide</p>
+                                        <ul>
+                                                <li> Bulletpoints!</li>
+                                                <li>More!</li>
+                                        </ul>
+                                </div>
+
+
+                                <div class="slide-buttons">
+                                        <button onclick="nextSlide()">Next Slide</button>
+                                </div>
+                        </div>
+
+                </div>
+
+                <script>
+                        function nextSlide() {
+                                // get list of all slides
+                                const slides = document.querySelectorAll(".slide-conts");
+
+                                // get current active slide and remove active id
+                                const curr_slide = document.querySelector("#active");
+                                curr_slide.id = "";
+
+                                //get next slide with data-current == data-next
+                                let next = curr_slide.dataset.next;
+
+                                for ( let i = 0; i < slides.length; i++ )
+                                {
+                                        if ( slides[i].dataset.current == next )
+                                        {
+                                                console.log("Switched to next slide");
+                                                slides[i].id="active";
+                                        }
+                                }
+                        }
+                </script>
+        </body>
+</html>
+
