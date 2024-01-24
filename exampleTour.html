@@ -29,7 +29,7 @@ nav {
 .slide-container {
         grid-row: 2 / 3;
         display: grid;
-        grid-template-rows: 80% 20%;
+        grid-template-rows: 92% 8%;
         grid-template-columns: 100%;
 }
 
@@ -39,6 +39,7 @@ nav {
         grid-row: 1 / 2;
         display: none;
         padding: 2vh;
+        overflow-y: scroll;
 }
 
 .slide-conts h1 {
@@ -74,44 +75,64 @@ nav {
                 </nav>
 
                 <div class="slide-container">
-                                <div class="slide-conts" id="active" data-current="a1" data-next="a2">
-                                        <h1>Introduction</h1>
-                                        <br>
-                                        <p>Description about DocDuck and what we are making</p>
-                                        <br>
-                                        <ul>
-                                                <li> Summary Bullet points!</li>
-                                                <li> More Bullet Points</li>
-                                                <li> Image Example Below</li>
-                                        </ul>
-                                        <!-- Add in an image, the max-width defines the width the image spreads across the page -->
-                                        <img src="assets/img/image.jpg" style="max-width: 20%;" />
-                                </div>
-
-                                <!-- data-current is the current slide, data-next is the slide to go to next on pressing the button -->
-                                <div class="slide-conts" data-current="a2" data-next="a3">
-                                        <h1>Test Slide 2!</h1>
-
-                                        <p> Some text about the slide</p>
-                                        <img src="assets/img/image.jpg" style="max-width: 20%;" />
-                                </div>
-
-                                <div class="slide-conts" data-current="a3" data-next="a1">
-                                        <h1>Test Slide 3!</h1>
-
-                                        <p> Some text about the slide</p>
-                                        <ul>
-                                                <li> Bulletpoints!</li>
-                                                <li>More!</li>
-                                        </ul>
-                                </div>
-
-
-                                <div class="slide-buttons">
-                                        <button onclick="nextSlide()">Next Slide</button>
-                                </div>
+                        <div class="slide-conts" id="active" data-current="a1" data-next="a2">
+                                <!-- Header/Title -->
+                                <h1>Introduction</h1>
+                                <!-- <br> is a break to add a bit of white space between sections -->
+                                <br>
+                                <!-- Paragraphs/Normal text, add extra <br> between if you want to form paragraphs -->
+                                <p>Description about DocDuck and what we are making</p>
+                                <br>
+                                <!-- This is how you hyperlink something. 
+                                target _blank means it also opens in a new page -->
+                                 
+                                <p><a href="https://york.ac.uk" target="_blank">link</a></p>
+                                <br>
+                                <!-- Bullet Points -->
+                                <ul>
+                                        <li> Summary Bullet points!</li>
+                                        <li> More Bullet Points</li>
+                                        <li> Image Example Below</li>
+                                </ul>
+                                <br>
+                                <!-- Add in an image, the max-width defines the width the image spreads across the page -->
+                                <img src="assets/img/image.jpg" style="max-width: 20%;" />
                         </div>
 
+                        <!-- SLIDE 2 -->
+                        <!-- data-current is the current slide, data-next is the slide to go to next on pressing the button -->
+                        <div class="slide-conts" data-current="a2" data-next="a3">
+                                <h1>Test Slide 2!</h1>
+
+                                <p> Some text about the slide</p>
+                                <img src="assets/img/image.jpg" style="max-width: 20%;" />
+                        </div>
+
+                        <!-- SLIDE 3 -->
+                        <div class="slide-conts" data-current="a3" data-next="a1">
+                                <h1>Test Slide 3!</h1>
+
+                                <p> Some text about the slide</p>
+                                <ul>
+                                        <li> Bulletpoints!</li>
+                                        <li>More!</li>
+                                </ul>
+                        </div>
+
+                        <!-- ADD MORE SLIDES HERE AS REQUIRED -->
+                        <!-- Copy and paste one of the slide examples above and edit it below -->
+                        <!-- All slide information should be placed within the following code (Uncomment code if using it) -->
+
+                        <!-- <div class="slide-conts" data-current="a3" data-next="a1">
+
+                        </div> -->
+
+
+                        
+                        <!-- Buttons to go to next slide -->
+                        <div class="slide-buttons">
+                                <button onclick="nextSlide()">Next Slide</button>
+                        </div>
                 </div>
                 
 
