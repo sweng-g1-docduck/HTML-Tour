@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>HelloApplication.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+HelloApplication.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">demo1</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">application</span><span class="s2">.</span><span class="s1">Application</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">beans</span><span class="s2">.</span><span class="s1">value</span><span class="s2">.</span><span class="s1">ChangeListener</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">beans</span><span class="s2">.</span><span class="s1">value</span><span class="s2">.</span><span class="s1">ObservableValue</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">event</span><span class="s2">.</span><span class="s1">ActionEvent</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">event</span><span class="s2">.</span><span class="s1">EventHandler</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">geometry</span><span class="s2">.</span><span class="s1">Pos</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">Scene</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">control</span><span class="s2">.</span><span class="s1">Hyperlink</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">control</span><span class="s2">.</span><span class="s1">PasswordField</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">control</span><span class="s2">.</span><span class="s1">TextField</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">image</span><span class="s2">.</span><span class="s1">Image</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">input</span><span class="s2">.</span><span class="s1">KeyCode</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">input</span><span class="s2">.</span><span class="s1">KeyEvent</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">BorderPane</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">VBox</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">text</span><span class="s2">.</span><span class="s1">Font</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">stage</span><span class="s2">.</span><span class="s1">Stage</span><span class="s2">;</span>
+
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">awt</span><span class="s2">.</span><span class="s1">Desktop</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">IOException</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">net</span><span class="s2">.</span><span class="s1">URI</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">net</span><span class="s2">.</span><span class="s1">URISyntaxException</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">HelloApplication </span><span class="s0">extends </span><span class="s1">Application </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">launch</span><span class="s2">(</span><span class="s1">args</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">start</span><span class="s2">(</span><span class="s1">Stage primaryStage</span><span class="s2">) {</span>
+        <span class="s1">primaryStage</span><span class="s2">.</span><span class="s1">setTitle</span><span class="s2">(</span><span class="s3">&quot;DocDuck Maintenance Tool&quot;</span><span class="s2">);</span>
+
+        <span class="s4">// Set application icon</span>
+        <span class="s0">try </span><span class="s2">{</span>
+            <span class="s1">Image icon </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Image</span><span class="s2">(</span><span class="s1">getClass</span><span class="s2">().</span><span class="s1">getResourceAsStream</span><span class="s2">(</span><span class="s3">&quot;/images/docduckicon.png&quot;</span><span class="s2">));</span>
+            <span class="s1">primaryStage</span><span class="s2">.</span><span class="s1">getIcons</span><span class="s2">().</span><span class="s1">add</span><span class="s2">(</span><span class="s1">icon</span><span class="s2">);</span>
+        <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">NullPointerException e</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">err</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Error loading icon: &quot; </span><span class="s2">+ </span><span class="s1">e</span><span class="s2">.</span><span class="s1">getMessage</span><span class="s2">());</span>
+        <span class="s2">}</span>
+
+        <span class="s1">BorderPane root </span><span class="s2">= </span><span class="s0">new </span><span class="s1">BorderPane</span><span class="s2">();</span>
+        <span class="s1">root</span><span class="s2">.</span><span class="s1">getStyleClass</span><span class="s2">().</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;background-panel&quot;</span><span class="s2">); </span><span class="s4">// Add background-panel class</span>
+        <span class="s1">root</span><span class="s2">.</span><span class="s1">getStyleClass</span><span class="s2">().</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;root&quot;</span><span class="s2">); </span><span class="s4">// Add root class for consistency</span>
+
+        <span class="s1">Font</span><span class="s2">.</span><span class="s1">loadFont</span><span class="s2">(</span><span class="s1">getClass</span><span class="s2">().</span><span class="s1">getResourceAsStream</span><span class="s2">(</span><span class="s3">&quot;/fonts/Inter.ttf&quot;</span><span class="s2">), </span><span class="s5">10</span><span class="s2">);</span>
+
+        <span class="s1">VBox loginForm </span><span class="s2">= </span><span class="s1">createLoginForm</span><span class="s2">();</span>
+        <span class="s1">root</span><span class="s2">.</span><span class="s1">setCenter</span><span class="s2">(</span><span class="s1">loginForm</span><span class="s2">);</span>
+
+        <span class="s1">Scene scene </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scene</span><span class="s2">(</span><span class="s1">root</span><span class="s2">, </span><span class="s5">600</span><span class="s2">, </span><span class="s5">600</span><span class="s2">);</span>
+
+        <span class="s4">// Link the CSS file, handling potential NullPointerException</span>
+        <span class="s1">String cssFile </span><span class="s2">= </span><span class="s1">getClass</span><span class="s2">().</span><span class="s1">getResource</span><span class="s2">(</span><span class="s3">&quot;/style.css&quot;</span><span class="s2">).</span><span class="s1">toExternalForm</span><span class="s2">();</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">cssFile </span><span class="s2">!= </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s1">scene</span><span class="s2">.</span><span class="s1">getStylesheets</span><span class="s2">().</span><span class="s1">add</span><span class="s2">(</span><span class="s1">cssFile</span><span class="s2">);</span>
+        <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">err</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;CSS file not found!&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s1">primaryStage</span><span class="s2">.</span><span class="s1">setScene</span><span class="s2">(</span><span class="s1">scene</span><span class="s2">);</span>
+
+        <span class="s4">// Set minimum window size</span>
+        <span class="s1">primaryStage</span><span class="s2">.</span><span class="s1">setMinWidth</span><span class="s2">(</span><span class="s5">600</span><span class="s2">);</span>
+        <span class="s1">primaryStage</span><span class="s2">.</span><span class="s1">setMinHeight</span><span class="s2">(</span><span class="s5">600</span><span class="s2">);</span>
+
+        <span class="s4">// Set maximum window size based on the native screen size</span>
+        <span class="s1">primaryStage</span><span class="s2">.</span><span class="s1">setMaxWidth</span><span class="s2">(</span><span class="s1">java</span><span class="s2">.</span><span class="s1">awt</span><span class="s2">.</span><span class="s1">GraphicsEnvironment</span><span class="s2">.</span><span class="s1">getLocalGraphicsEnvironment</span><span class="s2">().</span><span class="s1">getMaximumWindowBounds</span><span class="s2">().</span><span class="s1">width</span><span class="s2">);</span>
+        <span class="s1">primaryStage</span><span class="s2">.</span><span class="s1">setMaxHeight</span><span class="s2">(</span><span class="s1">java</span><span class="s2">.</span><span class="s1">awt</span><span class="s2">.</span><span class="s1">GraphicsEnvironment</span><span class="s2">.</span><span class="s1">getLocalGraphicsEnvironment</span><span class="s2">().</span><span class="s1">getMaximumWindowBounds</span><span class="s2">().</span><span class="s1">height</span><span class="s2">);</span>
+
+        <span class="s4">// Adjust the size dynamically based on the window size</span>
+        <span class="s1">scene</span><span class="s2">.</span><span class="s1">widthProperty</span><span class="s2">().</span><span class="s1">addListener</span><span class="s2">(</span><span class="s0">new </span><span class="s1">ChangeListener</span><span class="s2">&lt;</span><span class="s1">Number</span><span class="s2">&gt;() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">changed</span><span class="s2">(</span><span class="s1">ObservableValue</span><span class="s2">&lt;? </span><span class="s0">extends </span><span class="s1">Number</span><span class="s2">&gt; </span><span class="s1">observableValue</span><span class="s2">, </span><span class="s1">Number oldSceneWidth</span><span class="s2">, </span><span class="s1">Number newSceneWidth</span><span class="s2">) {</span>
+                <span class="s4">// Update your layout or content based on the new width</span>
+                <span class="s1">loginForm</span><span class="s2">.</span><span class="s1">setPrefWidth</span><span class="s2">(</span><span class="s1">newSceneWidth</span><span class="s2">.</span><span class="s1">doubleValue</span><span class="s2">());</span>
+            <span class="s2">}</span>
+        <span class="s2">});</span>
+
+        <span class="s1">scene</span><span class="s2">.</span><span class="s1">heightProperty</span><span class="s2">().</span><span class="s1">addListener</span><span class="s2">(</span><span class="s0">new </span><span class="s1">ChangeListener</span><span class="s2">&lt;</span><span class="s1">Number</span><span class="s2">&gt;() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">changed</span><span class="s2">(</span><span class="s1">ObservableValue</span><span class="s2">&lt;? </span><span class="s0">extends </span><span class="s1">Number</span><span class="s2">&gt; </span><span class="s1">observableValue</span><span class="s2">, </span><span class="s1">Number oldSceneHeight</span><span class="s2">, </span><span class="s1">Number newSceneHeight</span><span class="s2">) {</span>
+                <span class="s4">// Update your layout or content based on the new height</span>
+                <span class="s1">loginForm</span><span class="s2">.</span><span class="s1">setPrefHeight</span><span class="s2">(</span><span class="s1">newSceneHeight</span><span class="s2">.</span><span class="s1">doubleValue</span><span class="s2">());</span>
+            <span class="s2">}</span>
+        <span class="s2">});</span>
+
+        <span class="s1">primaryStage</span><span class="s2">.</span><span class="s1">show</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private </span><span class="s1">VBox createLoginForm</span><span class="s2">() {</span>
+        <span class="s1">VBox vbox </span><span class="s2">= </span><span class="s0">new </span><span class="s1">VBox</span><span class="s2">(</span><span class="s5">10</span><span class="s2">); </span><span class="s4">// Set spacing between elements</span>
+        <span class="s1">vbox</span><span class="s2">.</span><span class="s1">setAlignment</span><span class="s2">(</span><span class="s1">Pos</span><span class="s2">.</span><span class="s1">CENTER</span><span class="s2">); </span><span class="s4">// Center content vertically and horizontally</span>
+
+        <span class="s4">// Username</span>
+        <span class="s1">TextField usernameField </span><span class="s2">= </span><span class="s0">new </span><span class="s1">TextField</span><span class="s2">();</span>
+        <span class="s1">usernameField</span><span class="s2">.</span><span class="s1">setPromptText</span><span class="s2">(</span><span class="s3">&quot;Username&quot;</span><span class="s2">);</span>
+        <span class="s1">usernameField</span><span class="s2">.</span><span class="s1">getStyleClass</span><span class="s2">().</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;text-field&quot;</span><span class="s2">);</span>
+
+        <span class="s4">// Password</span>
+        <span class="s1">PasswordField passwordField </span><span class="s2">= </span><span class="s0">new </span><span class="s1">PasswordField</span><span class="s2">();</span>
+        <span class="s1">passwordField</span><span class="s2">.</span><span class="s1">setPromptText</span><span class="s2">(</span><span class="s3">&quot;Password&quot;</span><span class="s2">);</span>
+        <span class="s1">passwordField</span><span class="s2">.</span><span class="s1">getStyleClass</span><span class="s2">().</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;password-field&quot;</span><span class="s2">);</span>
+
+        <span class="s4">// Hyperlink for &quot;Forgot Password&quot;</span>
+        <span class="s1">Hyperlink forgotPasswordLink </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Hyperlink</span><span class="s2">(</span><span class="s3">&quot;Forgot Password?&quot;</span><span class="s2">);</span>
+        <span class="s1">forgotPasswordLink</span><span class="s2">.</span><span class="s1">getStyleClass</span><span class="s2">().</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;forgot-password-link&quot;</span><span class="s2">);</span>
+
+        <span class="s4">// Add event handler to open the link in the system browser</span>
+        <span class="s1">forgotPasswordLink</span><span class="s2">.</span><span class="s1">setOnAction</span><span class="s2">(</span><span class="s0">new </span><span class="s1">EventHandler</span><span class="s2">&lt;</span><span class="s1">ActionEvent</span><span class="s2">&gt;() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">handle</span><span class="s2">(</span><span class="s1">ActionEvent event</span><span class="s2">) {</span>
+                <span class="s1">openLink</span><span class="s2">(</span><span class="s3">&quot;https://docduck.000webhostapp.com&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">});</span>
+
+        <span class="s4">// Image Placeholder</span>
+        <span class="s0">try </span><span class="s2">{</span>
+            <span class="s4">// You need to replace 'your_image_path.png' with the actual path to your image file.</span>
+            <span class="s1">Image image </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Image</span><span class="s2">(</span><span class="s1">getClass</span><span class="s2">().</span><span class="s1">getResourceAsStream</span><span class="s2">(</span><span class="s3">&quot;/images/dockducklogo.png&quot;</span><span class="s2">));</span>
+            <span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">image</span><span class="s2">.</span><span class="s1">ImageView imageView </span><span class="s2">= </span><span class="s0">new </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">image</span><span class="s2">.</span><span class="s1">ImageView</span><span class="s2">(</span><span class="s1">image</span><span class="s2">);</span>
+            <span class="s1">imageView</span><span class="s2">.</span><span class="s1">setFitWidth</span><span class="s2">(</span><span class="s5">529</span><span class="s2">); </span><span class="s4">// Set the desired width</span>
+            <span class="s1">imageView</span><span class="s2">.</span><span class="s1">setFitHeight</span><span class="s2">(</span><span class="s5">277</span><span class="s2">); </span><span class="s4">// Set the desired height</span>
+
+            <span class="s1">vbox</span><span class="s2">.</span><span class="s1">getChildren</span><span class="s2">().</span><span class="s1">add</span><span class="s2">(</span><span class="s1">imageView</span><span class="s2">);</span>
+        <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">NullPointerException e</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">err</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Error loading image: &quot; </span><span class="s2">+ </span><span class="s1">e</span><span class="s2">.</span><span class="s1">getMessage</span><span class="s2">());</span>
+        <span class="s2">}</span>
+
+        <span class="s1">vbox</span><span class="s2">.</span><span class="s1">getChildren</span><span class="s2">().</span><span class="s1">addAll</span><span class="s2">(</span><span class="s1">usernameField</span><span class="s2">, </span><span class="s1">passwordField</span><span class="s2">, </span><span class="s1">forgotPasswordLink</span><span class="s2">);</span>
+
+        <span class="s4">// Button for &quot;Sign Up for Business&quot;</span>
+        <span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">control</span><span class="s2">.</span><span class="s1">Button signUpButton </span><span class="s2">= </span><span class="s0">new </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">control</span><span class="s2">.</span><span class="s1">Button</span><span class="s2">(</span><span class="s3">&quot;Sign Up for Business&quot;</span><span class="s2">);</span>
+        <span class="s1">signUpButton</span><span class="s2">.</span><span class="s1">getStyleClass</span><span class="s2">().</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;sign-up-button&quot;</span><span class="s2">);</span>
+
+        <span class="s1">vbox</span><span class="s2">.</span><span class="s1">getChildren</span><span class="s2">().</span><span class="s1">addAll</span><span class="s2">(</span><span class="s0">new </span><span class="s1">javafx</span><span class="s2">.</span><span class="s1">scene</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">Region</span><span class="s2">(), </span><span class="s1">signUpButton</span><span class="s2">); </span><span class="s4">// Add Region for spacing</span>
+
+        <span class="s4">// Add key event handler for Enter key on password field</span>
+        <span class="s1">passwordField</span><span class="s2">.</span><span class="s1">setOnKeyPressed</span><span class="s2">(</span><span class="s0">new </span><span class="s1">EventHandler</span><span class="s2">&lt;</span><span class="s1">KeyEvent</span><span class="s2">&gt;() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">handle</span><span class="s2">(</span><span class="s1">KeyEvent event</span><span class="s2">) {</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">event</span><span class="s2">.</span><span class="s1">getCode</span><span class="s2">() == </span><span class="s1">KeyCode</span><span class="s2">.</span><span class="s1">ENTER</span><span class="s2">) {</span>
+                    <span class="s4">// Clear the screen or perform the desired action</span>
+                    <span class="s1">vbox</span><span class="s2">.</span><span class="s1">getChildren</span><span class="s2">().</span><span class="s1">clear</span><span class="s2">();</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+        <span class="s2">});</span>
+
+        <span class="s0">return </span><span class="s1">vbox</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s4">// Method to open a link in the system's preferred browser</span>
+    <span class="s0">private void </span><span class="s1">openLink</span><span class="s2">(</span><span class="s1">String link</span><span class="s2">) {</span>
+        <span class="s0">try </span><span class="s2">{</span>
+            <span class="s1">Desktop</span><span class="s2">.</span><span class="s1">getDesktop</span><span class="s2">().</span><span class="s1">browse</span><span class="s2">(</span><span class="s0">new </span><span class="s1">URI</span><span class="s2">(</span><span class="s1">link</span><span class="s2">));</span>
+        <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">IOException </span><span class="s2">| </span><span class="s1">URISyntaxException e</span><span class="s2">) {</span>
+            <span class="s1">e</span><span class="s2">.</span><span class="s1">printStackTrace</span><span class="s2">();</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
