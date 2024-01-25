@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Example guided tour presented through some HTML slides
+<!-- Guided tour presented through some HTML slides
   -- Everything stored in one page
   -->
 
@@ -64,7 +64,12 @@ nav {
 
         display: flex;
         justify-content: center;
-        align-items: stretch;
+        align-items: center;
+}
+
+.slide-container > .slide-buttons button {
+        margin: 0 20px;
+        font-size: 1.7rem
 }
 
 .center {
@@ -82,7 +87,7 @@ nav {
                 </nav>
 
                 <div class="slide-container">
-                        <div class="slide-conts" id="active" data-current="a1" data-next="a2">
+                        <div class="slide-conts" id="active" data-current="a1" data-next="a2" data-prev="a11">
                                 <!-- Header/Title -->
                                 <h1>DocDuck Guided Tour</h1>
                                 <!-- <br> is a break to add a bit of white space between sections -->
@@ -118,35 +123,64 @@ nav {
 
                         <!-- SLIDE 2 -->
                         <!-- data-current is the current slide, data-next is the slide to go to next on pressing the button -->
-                        <div class="slide-conts" data-current="a2" data-next="a3">
+                        <div class="slide-conts" data-current="a2" data-next="a3" data-prev="a1">
                                 <h1>Quality Assurance Manual</h1>
+                                <br>
 
-                                <p> Quality Assurance manual description </p>
-
+                                <p> The Quality Assurance Manual is used to ensure quality is maintained suring the project. The document is designed as refernce for employees, clients and stakeholders.
+                                        It is intended to ensure that high quality and consistent standards are adhered to throughout the  company's activities. The document establishes the framework for each role and their 
+                                        responsibilities, the deliverables and project management and development methodology </p>
+                                <br>
+                                <p>Each member of the group completed the section for their primary role. This ensures that they are understand the level of quality expected in their contributions to the project.  
+                                        Each member generated a list of risk managements and quality assurance metrics related to their individual responsibilites. This was to ensure a specific and measurable metric of quality. The QA Manual drafts were sent to the client for review and feedback was integrated for each draft. The final version was reviewed by the whole group and was updated after release</p>
+                                <br>
+                                <p>The Project Management Methodology serves as an important reference for the design and programming components of the project. It clearly lays out the specific method to be used for successful 
+                                        implementation of agile development. This is to ensure that the programming created by each programmer is compatible with each other</p>
+                                <br>
+                                <p>Below are links to draft and released versions of the document:</p>
+                                <br>
+                                
                                 <!-- File needs adding into /assets/docs -->
-                                <p><a href="assets/docs/QualityAssuranceManual-Draft_1.pdf" target="_blank">Quality Assurance Manual Draft 1</a></p>
-                                <p><a href="assets/docs/QualityAssuranceManual-Draft_2.pdf" target="_blank">Quality Assurance Manual Draft 2</a></p>
-                                <p><a href="assets/docs/QualityAssuranceManual.pdf" target="_blank">Quality Assurance Manual Download</a></p>
+                                <p><a href="assets/docs/qa_manual/G1_DocDuck Quality_Assurance_Manual_v0.1.pdf" target="_blank">Quality Assurance Manual Draft 1</a></p>
+                                <p><a href="assets/docs/qa_manual/G1_DocDuck_Quality_Assurance_Manual_v0.2.pdf" target="_blank">Quality Assurance Manual Draft 2</a></p>
+                                <p><a href="assets/docs/qa_manual/G1_DocDuck_Quality_Assurance_Manual_v1.0.pdf" target="_blank">Quality Assurance Manual Release 1</a></p>
+                                <p><a href="assets/docs/qa_manual/G1_DocDuck_Quality_Assurance_Manual_v1.1.pdf" target="_blank">Quality Assurance Manual Release 1.1</a></p>
                                 
                         </div>
 
                         <!-- SLIDE 3 -->
-                        <div class="slide-conts" data-current="a3" data-next="a4">
+                        <div class="slide-conts" data-current="a3" data-next="a4" data-prev="a2">
                                 <h1>Function Specfication</h1>
 
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
+                                <p>The Function Specification outlines the functionality and requirements for the software. It is designed to lay out, in easy to understand terms, the specifics of the 
+                                        project. It acts as a blueprint for the dvelopers and designers when creating the program. It contains sections describing:  </p>
+                                        <ul>
+                                                <li>Product Overview</li>
+                                                <li>Product Scope</li>
+                                                <li>Solution Overview</li>
+                                                <li>Functional Specifications</li>
+                                                <li>System Configurations</li>
+                                                <li>Other system and none functional requirements</li>
+                                                <li>Integration Requirements</li>
+                                        </ul>
+                                <br>        
+                                <p>The requirements and use cases are used to facilitate the ease of use of object oriented programming and agile development. The Project Overview and Scope ensure that stakeholders can clearly and concidely see the scope of the project so that they can easily understand what they are investing in.</p>
+                                <br>
+                                <p>To ensure that the Functional Specification was completed to a high standard, the individual subsections were diveded between the group members. Draft versions were sent to the client for feedback which was integrated into the next release. The document was reviewed by the whole group prior to release and continued to be updated after release.</p> 
+                                <br>
+                                <p>Below are links to draft and released versions of the document:</p>
+                                <br>
+
                                 <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/FunctionalSpecfication-Draft_1.pdf" target="_blank">Functional Specification Draft 1</a></p>
-                                <p><a href="assets/docs/FunctionalSpecfication-Draft_2.pdf" target="_blank">Functional Specification Draft 2</a></p>
-                                <p><a href="assets/docs/FunctionalSpecfication.pdf" target="_blank">Functional Specification Download</a></p>
+                                <p><a href="assets/docs/func-spec/G1-DocDuck-Functional-Specification-v0.1.pdf" target="_blank">Functional Specification Draft 1</a></p>
+                                <p><a href="assets/docs/func-spec/G1-DocDuck-Functional-Specification-v0.2.pdf" target="_blank">Functional Specification Draft 2</a></p>
+                                <p><a href="assets/docs/func-spec/G1-DocDuck-Functional-Specification-v0.3.pdf" target="_blank">Functional Specification Draft 3</a></p>
+                                <p><a href="assets/docs/func-spec/G1-DocDuck-Functional-Specification-v1.0.pdf" target="_blank">Functional Specification Release 1</a></p>
+                                <p><a href="assets/docs/func-spec/G1-DocDuck-Functional-Specification-v1.1.pdf" target="_blank">Functional Specification Release 1.1</a></p>
                         </div>
 
                         <!-- SLIDE 4 -->
-                        <div class="slide-conts" data-current="a4" data-next="a5">
+                        <div class="slide-conts" data-current="a4" data-next="a5" data-prev="a3">
                                 <h1>Financial Business Plan</h1>
 
                                 <p> Some text about the slide</p>
@@ -161,7 +195,7 @@ nav {
                         </div>
 
                         <!-- SLIDE 5 -->
-                        <div class="slide-conts" data-current="a5" data-next="a6">
+                        <div class="slide-conts" data-current="a5" data-next="a6" data-prev="a4">
                                 <h1>Marketing Plan</h1>
 
                                 <p> Some text about the slide</p>
@@ -176,7 +210,7 @@ nav {
                         </div>
 
                         <!-- SLIDE 6 -->
-                        <div class="slide-conts" data-current="a6" data-next="a7">
+                        <div class="slide-conts" data-current="a6" data-next="a7" data-prev="a5">
                                 <h1>Project Wide Standard</h1>
 
                                 <p> Some text about the slide</p>
@@ -191,94 +225,58 @@ nav {
                         </div>
 
                         <!-- SLIDE 7 -->
-                        <div class="slide-conts" data-current="a7" data-next="a8">
+                        <div class="slide-conts" data-current="a7" data-next="a8" data-prev="a6">
                                 <h1>Inter Group Contracts</h1>
 
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
+                                <br>
+                                <p>As part of the requirements to buy in at least two media handlers, 4 contracts have been agreed between DocDuck and BookCook. DocDuck is buying from BookCook the handlers for audio and video and selling them grahpics and text. The contracts lay out what the buyer expects in terms of payment and delivery schedule as well as coding and functional specifications.</p>
+
+                                <br>
+                                <p>Links to the signed contracts have been provided below:</p>
+                                <br>
                                 <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/Contract1.pdf" target="_blank">Contract 1</a></p>
-                                <p><a href="assets/docs/Contract2.pdf" target="_blank">Contract 2</a></p>
+                                <p><a href="assets/docs/contracts/BookCook-Graphics-Contract-Signed.pdf" target="_blank">Graphics Handler Sale Contract</a></p>
+                                <p><a href="assets/docs/contracts/BookCook-Text-Contract-Signed.pdf" target="_blank">Text Handler Sale Contract</a></p>
+                                <p><a href="assets/docs/contracts/DocDuck-Audio-Contract-Signed.pdf" target="_blank">Audio Handler Purchase Contract</a></p>
+                                <p><a href="assets/docs/contracts/DocDuck-Video-Contract-Signed.pdf" target="_blank">Video Handler Purchase Contract</a></p>
                         </div>
 
                         <!-- SLIDE 8 -->
-                        <div class="slide-conts" data-current="a8" data-next="a9">
+                        <div class="slide-conts" data-current="a8" data-next="a9" data-prev="a7">
                                 <h1>Meeting Minutes and Agendas</h1>
 
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
+                                <p>Minutes are taken during meetings to document the discussions during and actions to be undertken after each meeting. Meeting minutes are filled in during the meeting by a QA and Documentation Manager An agenda for each meeting is set before by a Project Manager and available before each meeting for group members to familiarise themselves</p>
+
+                                <br>
+                                <p>Links to the minutes and agendas have been provided below:</p>
+                                <br>
                                 <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                                <p><a href="assets/docs/minutes/September/" target="_blank">Meeting Minutes and Agendas - September 2023</a></p>
+                                <p><a href="assets/docs/minutes/October/" target="_blank">Meeting Minutes and Agendas - October 2023</a></p>
+                                <p><a href="assets/docs/minutes/November/" target="_blank">Meeting Minutes and Agendas - November 2023</a></p>
+                                <p><a href="assets/docs/minutes/December/" target="_blank">Meeting Minutes and Agendas - December 2023</a></p>
+                                <p><a href="assets/docs/minutes/January/" target="_blank">Meeting Minutes and Agendas - January 2024</a></p>
+                                <p><a href="assets/docs/minutes/Templates/" target="_blank">Meeting Minutes and Agenda - Templates</a></p>
                         </div>
 
                         <!-- SLIDE 9 -->
-                        <div class="slide-conts" data-current="a9" data-next="a10">
+                        <div class="slide-conts" data-current="a9" data-next="a10" data-prev="a8">
                                 <h1>Timesheets</h1>
 
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
-                                <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
+                                <br>
+                                <p>To track individual progress, a weekly timesheet/report has been used. This contains information of which meetings the employee has attended, how long they have worked each week, and what work has been completed each week. The reports should be ratified by a QA and Documentation Manager each week.</p>
+                                
+                                <br>
+                                        <!-- File needs adding into /assets/docs/ -->
+                                <p><a href="assets/docs/reports/william/" target="_blank">Timesheets - William Betteridge</a></p>
+                                <p><a href="assets/docs/reports/josh/" target="_blank">Timesheets - Josh Bradley</a></p>
+                                <p><a href="assets/docs/reports/noah/" target="_blank">Timesheets - Noah Carter</a></p>
+                                <p><a href="assets/docs/reports/jabez/" target="_blank">Timesheets - Jabez Cheung</a></p>
+                                <p><a href="assets/docs/reports/zhihao/" target="_blank">Timesheets - Zhihao Ma</a></p>
+                                <p><a href="assets/docs/reports/hari/" target="_blank">Timesheets - Hari Mamman</a></p>
+                                <p><a href="assets/docs/reports/james/" target="_blank">Timesheets - James Stevenson</a></p>
+                                <p><a href="assets/docs/reports/rob/" target="_blank">Timesheets - Rob Walker</a></p>
+                                <p><a href="assets/docs/reports/luke/" target="_blank">Timesheets - Luke Warbey</a></p>
                         </div>
 
                         <!-- ADD MORE SLIDES HERE AS REQUIRED -->
@@ -289,8 +287,9 @@ nav {
 
                         </div> -->
                         <!-- SLIDE 10 GUI -->
-                        <div class="slide-conts" data-current="a10" data-next="a11">
-                                <h1>GUI Demos and Source code</h1>
+
+                        <div class="slide-conts" data-current="a10" data-next="a11" data-prev="a9">
+                        <h1>GUI Demos and Source code</h1>
 
                                 <p> UX Designs with Figma and GUI Demo Designs with JavaFX and Gradle: On the left is a interactive login page for DocDuck and on the right is a UX design of a home page with scrollable text.</p>
                                 <br>
@@ -303,18 +302,35 @@ nav {
                         </div>
 
                         <!-- SLIDE 11 GUI pt2-->
-                        <div class="slide-conts" data-current="a11" data-next="a1">
+                        <div class="slide-conts" data-current="a11" data-next="a12" data-prev="a10">
                                 <h1>HTML Example of Home page for Engineer, Click the link and scroll on each side of design </h1>
 
                                 <a href="GraphicInterfaceHTMLMockup.html">Projects</a>
                                 <!-- HTML Here -->
 
                         </div>
-                
+            
 
+                        <!-- ADD MORE SLIDES HERE AS REQUIRED -->
+                        <!-- Copy and paste one of the slide examples above and edit it below -->
+                        <!-- All slide information should be placed within the following code (Uncomment code if using it) -->
+
+                        <!-- <div class="slide-conts" data-current="a3" data-next="a1"> 
                         
+                        </div> -->
+                        <!-- SLIDE 11  Testing -->
+                        <div class="slide-conts" data-current="a12" data-next="a1" data-prev="a11">
+                                <h1>TDD Example</h1>
+                                <p> I provide a basic structure for the LoginSystem class and its corresponding test class LoginSystemTest in the following PDF file.</p>
+                                <br>
+
+                                <p><a href="assets/Doc/TDD_example.pdf" target="_blank">TDD Example for Login System</a></p>
+
+                        </div>
+                                      
                         <!-- Buttons to go to next slide -->
                         <div class="slide-buttons">
+                                <button onclick="prevSlide()">Previous Slide</button>
                                 <button onclick="nextSlide()">Next Slide</button>
                         </div>
                         
@@ -339,6 +355,27 @@ nav {
                                         if ( slides[i].dataset.current == next )
                                         {
                                                 console.log("Switched to next slide");
+                                                slides[i].id="active";
+                                        }
+                                }
+                        }
+                        function prevSlide()
+                        {
+                                // get list of all slides
+                                const slides = document.querySelectorAll(".slide-conts");
+
+                                // get current active slide and remove active id
+                                const curr_slide = document.querySelector("#active");
+                                curr_slide.id = "";
+
+                                //get previous slide with data-current == data-prev
+                                let prev = curr_slide.dataset.prev;
+
+                                for (let i = 0; i < slides.length; i++)
+                                {
+                                        if (slides[i].dataset.current == prev)
+                                        {
+                                                console.log("Switched to prev slide");
                                                 slides[i].id="active";
                                         }
                                 }
