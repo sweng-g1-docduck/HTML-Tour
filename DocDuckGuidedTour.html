@@ -1,340 +1,369 @@
 <!DOCTYPE html>
-<!-- Example guided tour presented through some HTML slides
+<!-- Guided tour presented through some HTML slides
   -- Everything stored in one page
   -->
 
 <html>
-        <head>
-                <title>DocDuck Guided Tour</title>
+    <head>
+        <title>DocDuck Guided Tour</title>
 
 <style>
 * { margin: 0; box-sizing: border-box }
 body {
-        display: grid;
-        grid-template-rows: 10vh 90vh;
-        grid-template-columns: 100vw;
+    display: grid;
+    grid-template-rows: 10vh 90vh;
+    grid-template-columns: 100vw;
 }
 
 nav {
-        grid-row: 1 / 2;
-        background-color: #1f5398;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    grid-row: 1 / 2;
+    background-color: #1f5398;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        font-size: 2.666rem;
-        color: white
+    font-size: 2.666rem;
+    color: white
 }
 
 .slide-container {
-        grid-row: 2 / 3;
-        display: grid;
-        grid-template-rows: 92% 8%;
-        grid-template-columns: 100%;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-rows: 92% 8%;
+    grid-template-columns: 100%;
 }
 
 .slide-container > .slide-conts {
-        border: 1px solid black;
-        margin: 1vh;
-        grid-row: 1 / 2;
-        display: none;
-        padding: 2vh;
-        overflow-y: scroll;
+    border: 1px solid black;
+    margin: 1vh;
+    grid-row: 1 / 2;
+    display: none;
+    padding: 2vh;
+    overflow-y: scroll;
 }
 
 .slide-conts h1 {
-        font-size: 2.333rem;
+    font-size: 2.333rem;
 }
 
 .slide-conts h2 {
-        font-size: 1.888rem;
+    font-size: 1.888rem;
 }
 
 .slide-conts p, li {
-        font-size: 1.333rem;
+    font-size: 1.333rem;
 }
 
 .slide-conts#active {
-        display: inline-block;
+    display: inline-block;
 }
 
 .slide-container > .slide-buttons {
-        grid-row: 2 / 3;
-        background-color: #1f5398;
+    grid-row: 2 / 3;
+    background-color: #1f5398;
 
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-container > .slide-buttons button {
+    margin: 0 20px;
+    font-size: 1.7rem
 }
 
 .center {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 </style>
-        </head>
-        <body>
-                <nav>
-                        <p class="nav-text">DocDuck Guided Tour</p>
-                </nav>
+    </head>
+    <body>
+        <nav>
+            <p class="nav-text">DocDuck Guided Tour</p>
+        </nav>
 
-                <div class="slide-container">
-                        <div class="slide-conts" id="active" data-current="a1" data-next="a2">
-                                <!-- Header/Title -->
-                                <h1>DocDuck Guided Tour</h1>
-                                <!-- <br> is a break to add a bit of white space between sections -->
-                                <br>
-                                <h2>Introduction</h2>
-                                <br>
-                                <!-- Paragraphs/Normal text, add extra <br> between if you want to form paragraphs -->
-                                <p>This webpage has been created to provide an HTML tour of our product and all associated deliverables. The tour has been organised into multiple slides with one slide per topic, and you can navigate through these slides using the "next slide" button at the bottom of the page. In this tour you will find pages which explain what DocDuck is, what work we have achieved so far, and how we have worked as a team.</p>
-                                <br>
-                                <p>Additionally, you will see sections based on each of our deliverables that summarise key components of the documents as well as links and references to all our completed documents</p>
-                                <br>
-                                <h2>About DocDuck</h2>
-                                <br>
-                                <p>DocDuck explanation here........</p>
-                                <br>
-                                <p>More context, perhaps add an image in</p>
-                                <br>
-                                <!-- This is how you hyperlink something. 
-                                target _blank means it also opens in a new page -->
-                                <p><a href="https://york.ac.uk" target="_blank">link</a></p>
-                                <br>
-                                <!-- Bullet Points -->
-                                <ul>
-                                        <li> Summary Bullet points!</li>
-                                        <li> More Bullet Points</li>
-                                        <li> Image Example Below</li>
-                                </ul>
-                                <br>
-                                <!-- Add in an image, the max-width defines the width the image spreads across the page -->
-                                <p> Replace this image with our logo.. Place image somewhere suitable on the slide</p>
-                                <img src="assets/img/image.jpg" style="max-width: 80%;" class="center" />       
-                        </div>
+        <div class="slide-container">
+            <div class="slide-conts" id="active" data-current="a1" data-next="a2" data-prev="a10">
+                <!-- Header/Title -->
+                <h1>DocDuck Guided Tour</h1>
+                <!-- <br> is a break to add a bit of white space between sections -->
+                <br>
+                <h2>Introduction</h2>
+                <br>
+                <!-- Paragraphs/Normal text, add extra <br> between if you want to form paragraphs -->
+                <p>This webpage has been created to provide an HTML tour of our product and all associated deliverables. The tour has been organised into multiple slides with one slide per topic, and you can navigate through these slides using the "next slide" button at the bottom of the page. In this tour you will find pages which explain what DocDuck is, what work we have achieved so far, and how we have worked as a team.</p>
+                <br>
+                <p>Additionally, you will see sections based on each of our deliverables that summarise key components of the documents as well as links and references to all our completed documents</p>
+                <br>
+                <h2>About DocDuck</h2>
+                <br>
+                <p>DocDuck explanation here........</p>
+                <br>
+                <p>More context, perhaps add an image in</p>
+                <br>
+                <!-- This is how you hyperlink something. 
+                target _blank means it also opens in a new page -->
+                <p><a href="https://york.ac.uk" target="_blank">link</a></p>
+                <br>
+                <!-- Bullet Points -->
+                <ul>
+                        <li> Summary Bullet points!</li>
+                        <li> More Bullet Points</li>
+                        <li> Image Example Below</li>
+                </ul>
+                <br>
+                <!-- Add in an image, the max-width defines the width the image spreads across the page -->
+                <p> Replace this image with our logo.. Place image somewhere suitable on the slide</p>
+                <img src="assets/img/image.jpg" style="max-width: 80%;" class="center" />       
+            </div>
 
-                        <!-- SLIDE 2 -->
-                        <!-- data-current is the current slide, data-next is the slide to go to next on pressing the button -->
-                        <div class="slide-conts" data-current="a2" data-next="a3">
-                                <h1>Quality Assurance Manual</h1>
+            <!-- SLIDE 2 -->
+            <!-- data-current is the current slide, data-next is the slide to go to next on pressing the button -->
+            <div class="slide-conts" data-current="a2" data-next="a3" data-prev="a1">
+                <h1>Quality Assurance Manual</h1>
 
-                                <p> Quality Assurance manual description </p>
+                <p> Quality Assurance manual description </p>
 
-                                <!-- File needs adding into /assets/docs -->
-                                <p><a href="assets/docs/QualityAssuranceManual-Draft_1.pdf" target="_blank">Quality Assurance Manual Draft 1</a></p>
-                                <p><a href="assets/docs/QualityAssuranceManual-Draft_2.pdf" target="_blank">Quality Assurance Manual Draft 2</a></p>
-                                <p><a href="assets/docs/QualityAssuranceManual.pdf" target="_blank">Quality Assurance Manual Download</a></p>
-                                
-                        </div>
+                <!-- File needs adding into /assets/docs -->
+                <p><a href="assets/docs/QualityAssuranceManual-Draft_1.pdf" target="_blank">Quality Assurance Manual Draft 1</a></p>
+                <p><a href="assets/docs/QualityAssuranceManual-Draft_2.pdf" target="_blank">Quality Assurance Manual Draft 2</a></p>
+                <p><a href="assets/docs/QualityAssuranceManual.pdf" target="_blank">Quality Assurance Manual Download</a></p>
+                    
+            </div>
 
-                        <!-- SLIDE 3 -->
-                        <div class="slide-conts" data-current="a3" data-next="a4">
-                                <h1>Function Specfication</h1>
+            <!-- SLIDE 3 -->
+            <div class="slide-conts" data-current="a3" data-next="a4" data-prev="a2">
+                <h1>Function Specfication</h1>
 
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
-                                <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/FunctionalSpecfication-Draft_1.pdf" target="_blank">Functional Specification Draft 1</a></p>
-                                <p><a href="assets/docs/FunctionalSpecfication-Draft_2.pdf" target="_blank">Functional Specification Draft 2</a></p>
-                                <p><a href="assets/docs/FunctionalSpecfication.pdf" target="_blank">Functional Specification Download</a></p>
-                        </div>
+                <p> Some text about the slide</p>
+                <ul>
+                        <li> Bulletpoints!</li>
+                        <li>More!</li>
+                </ul>
+                <!-- File needs adding into /assets/docs/ -->
+                <p><a href="assets/docs/FunctionalSpecfication-Draft_1.pdf" target="_blank">Functional Specification Draft 1</a></p>
+                <p><a href="assets/docs/FunctionalSpecfication-Draft_2.pdf" target="_blank">Functional Specification Draft 2</a></p>
+                <p><a href="assets/docs/FunctionalSpecfication.pdf" target="_blank">Functional Specification Download</a></p>
+            </div>
 
-                        <!-- SLIDE 4 -->
-                        <div class="slide-conts" data-current="a4" data-next="a5">
-                                <h1>Financial Business Plan</h1>
+            <!-- SLIDE 4 -->
+            <div class="slide-conts" data-current="a4" data-next="a5" data-prev="a3">
+                <h1>Financial Business Plan</h1>
 
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
-                                <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/FinancialBusinessPlan-Draft_1.pdf" target="_blank">Financial Business Plan Draft 1</a></p>
-                                <p><a href="assets/docs/FinancialBusinessPlan-Draft_2.pdf" target="_blank">Financial Business Plan Draft 2</a></p>
-                                <p><a href="assets/docs/FinancialBusinessPlan.pdf" target="_blank">Financial Business Plan Download</a></p>
-                        </div>
+                <p> Some text about the slide</p>
+                <ul>
+                        <li> Bulletpoints!</li>
+                        <li>More!</li>
+                </ul>
+                <!-- File needs adding into /assets/docs/ -->
+                <p><a href="assets/docs/FinancialBusinessPlan-Draft_1.pdf" target="_blank">Financial Business Plan Draft 1</a></p>
+                <p><a href="assets/docs/FinancialBusinessPlan-Draft_2.pdf" target="_blank">Financial Business Plan Draft 2</a></p>
+                <p><a href="assets/docs/FinancialBusinessPlan.pdf" target="_blank">Financial Business Plan Download</a></p>
+            </div>
 
-                        <!-- SLIDE 5 -->
-                        <div class="slide-conts" data-current="a5" data-next="a6">
-                                <h1>Marketing Plan</h1>
+            <!-- SLIDE 5 -->
+            <div class="slide-conts" data-current="a5" data-next="a6" data-prev="a4">
+                <h1>Marketing Plan</h1>
 
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
-                                <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/MarketingPlan-Draft_1.pdf" target="_blank">Marketing Plan Draft 1</a></p>
-                                <p><a href="assets/docs/MarketingPlan-Draft_2.pdf" target="_blank">Marketing Plan Draft 2</a></p>
-                                <p><a href="assets/docs/MarketingPlan.pdf" target="_blank">Marketing Plan Download</a></p>
-                        </div>
+                <p> Some text about the slide</p>
+                <ul>
+                        <li> Bulletpoints!</li>
+                        <li>More!</li>
+                </ul>
+                <!-- File needs adding into /assets/docs/ -->
+                <p><a href="assets/docs/MarketingPlan-Draft_1.pdf" target="_blank">Marketing Plan Draft 1</a></p>
+                <p><a href="assets/docs/MarketingPlan-Draft_2.pdf" target="_blank">Marketing Plan Draft 2</a></p>
+                <p><a href="assets/docs/MarketingPlan.pdf" target="_blank">Marketing Plan Download</a></p>
+            </div>
 
-                        <!-- SLIDE 6 -->
-                        <div class="slide-conts" data-current="a6" data-next="a7">
-                                <h1>Project Wide Standard</h1>
+            <!-- SLIDE 6 -->
+            <div class="slide-conts" data-current="a6" data-next="a7" data-prev="a5">
+                <h1>Project Wide Standard</h1>
 
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
-                                <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/ProjectWideStandard-Draft_1.pdf" target="_blank">Project Wide Standard Draft 1</a></p>
-                                <p><a href="assets/docs/ProjectWideStandard-Draft_2.pdf" target="_blank">Project Wide Standard Draft 2</a></p>
-                                <p><a href="assets/docs/ProjectWideStandard.pdf" target="_blank">Project Wide Standard Download</a></p>
-                        </div>
+                <p> Some text about the slide</p>
+                <ul>
+                        <li> Bulletpoints!</li>
+                        <li>More!</li>
+                </ul>
+                <!-- File needs adding into /assets/docs/ -->
+                <p><a href="assets/docs/ProjectWideStandard-Draft_1.pdf" target="_blank">Project Wide Standard Draft 1</a></p>
+                <p><a href="assets/docs/ProjectWideStandard-Draft_2.pdf" target="_blank">Project Wide Standard Draft 2</a></p>
+                <p><a href="assets/docs/ProjectWideStandard.pdf" target="_blank">Project Wide Standard Download</a></p>
+            </div>
 
-                        <!-- SLIDE 7 -->
-                        <div class="slide-conts" data-current="a7" data-next="a8">
-                                <h1>Inter Group Contracts</h1>
+            <!-- SLIDE 7 -->
+            <div class="slide-conts" data-current="a7" data-next="a8" data-prev="a6">
+                <h1>Inter Group Contracts</h1>
 
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
-                                <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/Contract1.pdf" target="_blank">Contract 1</a></p>
-                                <p><a href="assets/docs/Contract2.pdf" target="_blank">Contract 2</a></p>
-                        </div>
+                <p> Some text about the slide</p>
+                <ul>
+                        <li> Bulletpoints!</li>
+                        <li>More!</li>
+                </ul>
+                <!-- File needs adding into /assets/docs/ -->
+                <p><a href="assets/docs/Contract1.pdf" target="_blank">Contract 1</a></p>
+                <p><a href="assets/docs/Contract2.pdf" target="_blank">Contract 2</a></p>
+            </div>
 
-                        <!-- SLIDE 8 -->
-                        <div class="slide-conts" data-current="a8" data-next="a9">
-                                <h1>Meeting Minutes and Agendas</h1>
+            <!-- SLIDE 8 -->
+            <div class="slide-conts" data-current="a8" data-next="a9" data-prev="a7">
+                <h1>Meeting Minutes and Agendas</h1>
 
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
-                                <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
-                                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
-                        </div>
+                <p> Some text about the slide</p>
+                <ul>
+                        <li> Bulletpoints!</li>
+                        <li>More!</li>
+                </ul>
+                <!-- File needs adding into /assets/docs/ -->
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+                <p><a href="assets/docs/MeetingAgenda-Date.pdf" target="_blank">Meeting Agenda - Date</a></p>
+                <p><a href="assets/docs/MeetingMinutes-Date.pdf" target="_blank">Meeting Minutes - Date</a></p>
+            </div>
 
-                        <!-- SLIDE 9 -->
-                        <div class="slide-conts" data-current="a9" data-next="a10">
-                                <h1>Timesheets</h1>
+            <!-- SLIDE 9 -->
+            <div class="slide-conts" data-current="a9" data-next="a10" data-prev="a8">
+                <h1>Timesheets</h1>
 
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
-                                <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
-                        </div>
+                <p> Some text about the slide</p>
+                <ul>
+                        <li> Bulletpoints!</li>
+                        <li>More!</li>
+                </ul>
+                <!-- File needs adding into /assets/docs/ -->
+                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
+                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
+                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
+                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
+                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
+                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
+                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
+                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
+                <p><a href="assets/docs/Timesheet-Name.pdf" target="_blank">Timesheet - Name</a></p>
+            </div>
 
-                        <!-- ADD MORE SLIDES HERE AS REQUIRED -->
-                        <!-- Copy and paste one of the slide examples above and edit it below -->
-                        <!-- All slide information should be placed within the following code (Uncomment code if using it) -->
+            <!-- ADD MORE SLIDES HERE AS REQUIRED -->
+            <!-- Copy and paste one of the slide examples above and edit it below -->
+            <!-- All slide information should be placed within the following code (Uncomment code if using it) -->
 
-                        <!-- <div class="slide-conts" data-current="a3" data-next="a1">
+            <!-- <div class="slide-conts" data-current="a3" data-next="a1">
 
-                        </div> -->
-                        <!-- SLIDE 10 GUI -->
-                        <div class="slide-conts" data-current="a10" data-next="a1">
-                                <h1>GUI Demos and Source code</h1>
+            </div> -->
+            <!-- SLIDE 10 GUI -->
+            <div class="slide-conts" data-current="a10" data-next="a1" data-prev="a9">
+                <h1>GUI Demos and Source code</h1>
 
-                                <p> UX Designs with Figma and GUI Demo Designs with JavaFX and Gradle: On the left is a interactive login page for DocDuck and on the right is a UX design of a home page with scrollable text.</p>
-                                <br>
-                                <!-- Add in an image, the max-width defines the width the image spreads across the page -->
-                                <!-- Add a link to the subfolder -->
-                                <p><a href="assets/source-code/">Link to Source Code</a></p>
+                <p> UX Designs with Figma and GUI Demo Designs with JavaFX and Gradle</p>
+                <br>
+                <!-- Add in an image, the max-width defines the width the image spreads across the page -->
+                <!-- Add a link to the subfolder -->
+                <p><a href="assets/source-code/">Link to Source Code</a></p>
 
-                                <img src="assets/img/DocDuck%20Login%20Java%20demo.png" style="max-width: 80%;" class="left" />
-                                <img src="assets/img/DocDuck%20Home%20Page%20Figma.PNG" style="max-width: 50%;" class="right" />
-                        </div>
+                <img src="assets/img/DocDuck%20Login%20Java%20demo.png" style="max-width: 80%;" class="left" />
+                <img src="assets/img/DocDuck%20Home%20Page%20Figma.PNG" style="max-width: 50%;" class="right" />
+            </div>
+    
+
+            
+            <!-- Buttons to go to next and previous slides -->
+            <div class="slide-buttons">
+                <button onclick="prevSlide()">Previous Slide</button>
+                <button onclick="nextSlide()">Next Slide</button>
+            </div>
                 
+        </div>
+            
 
-                        
-                        <!-- Buttons to go to next slide -->
-                        <div class="slide-buttons">
-                                <button onclick="nextSlide()">Next Slide</button>
-                        </div>
-                        
-                </div>
-                
+        <!-- Javascript to handle the button presses -->
+        <script>
+            function nextSlide() 
+            {
+                // get list of all slides
+                const slides = document.querySelectorAll(".slide-conts");
 
-                <!-- Javascript to handle the button presses -->
-                <script>
-                        function nextSlide() {
-                                // get list of all slides
-                                const slides = document.querySelectorAll(".slide-conts");
+                // get current active slide and remove active id
+                const curr_slide = document.querySelector("#active");
+                curr_slide.id = "";
 
-                                // get current active slide and remove active id
-                                const curr_slide = document.querySelector("#active");
-                                curr_slide.id = "";
+                //get next slide with data-current == data-next
+                let next = curr_slide.dataset.next;
 
-                                //get next slide with data-current == data-next
-                                let next = curr_slide.dataset.next;
+                for (let i = 0; i < slides.length; i++)
+                {
+                    if (slides[i].dataset.current == next)
+                    {
+                        console.log("Switched to next slide");
+                        slides[i].id="active";
+                    }
+                }
+            }
 
-                                for ( let i = 0; i < slides.length; i++ )
-                                {
-                                        if ( slides[i].dataset.current == next )
-                                        {
-                                                console.log("Switched to next slide");
-                                                slides[i].id="active";
-                                        }
-                                }
-                        }
-                </script>
-        </body>
+            function prevSlide()
+            {
+                // get list of all slides
+                const slides = document.querySelectorAll(".slide-conts");
+
+                // get current active slide and remove active id
+                const curr_slide = document.querySelector("#active");
+                curr_slide.id = "";
+
+                //get previous slide with data-current == data-prev
+                let prev = curr_slide.dataset.prev;
+
+                for (let i = 0; i < slides.length; i++)
+                {
+                    if (slides[i].dataset.current == prev)
+                    {
+                        console.log("Switched to prev slide");
+                        slides[i].id="active";
+                    }
+                }
+            }
+        </script>
+    </body>
 </html>
 
