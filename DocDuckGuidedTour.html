@@ -77,10 +77,19 @@ nav {
 }
 
 .center {
+        text-align: center;
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
+        
+}
+
+.centerImg {
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
 }
 
 </style>
@@ -92,8 +101,11 @@ nav {
 
                 <div class="slide-container">
                         <div class="slide-conts" id="active" data-current="a1" data-next="a2" data-prev="a12">
+                                <br>
+                                <img src="assets/img/docducklogo.png" style="max-width: 60%;" class="centerImg" /> 
+                                <br>
                                 <!-- Header/Title -->
-                                <h1>DocDuck Guided Tour</h1>
+                                <h1 class="center">DocDuck HTML Guided Tour</h1>
                                 <!-- <br> is a break to add a bit of white space between sections -->
                                 <br>
                                 <h2>Introduction</h2>
@@ -119,10 +131,7 @@ nav {
                                         <li> More Bullet Points</li>
                                         <li> Image Example Below</li>
                                 </ul>
-                                <br>
-                                <!-- Add in an image, the max-width defines the width the image spreads across the page -->
-                                <p> Replace this image with our logo.. Place image somewhere suitable on the slide</p>
-                                <img src="assets/img/image.jpg" style="max-width: 80%;" class="center" />       
+                                
                         </div>
 
                         <!-- SLIDE 2 -->
@@ -154,8 +163,8 @@ nav {
 
                         <!-- SLIDE 3 -->
                         <div class="slide-conts" data-current="a3" data-next="a4" data-prev="a2">
-                                <h1>Function Specfication</h1>
-
+                                <h1>Functional Specfication</h1>
+                                <br>
                                 <p>The Function Specification outlines the functionality and requirements for the software. It is designed to lay out, in easy to understand terms, the specifics of the 
                                         project. The Functional Specification acts as a blueprint for the dvelopers and designers when creating the program. The document contains sections describing:  </p>
                                         <ul>
@@ -186,12 +195,13 @@ nav {
                         <!-- SLIDE 4 -->
                         <div class="slide-conts" data-current="a4" data-next="a5" data-prev="a3">
                                 <h1>Financial Business Plan</h1>
-
+                                <br>
                                 <p> Some text about the slide</p>
                                 <ul>
                                         <li> Bulletpoints!</li>
                                         <li>More!</li>
                                 </ul>
+                                <br>
                                 <!-- File needs adding into /assets/docs/ -->
                                 <p><a href="assets/docs/FinancialBusinessPlan-Draft_1.pdf" target="_blank">Financial Business Plan Draft 1</a></p>
                                 <p><a href="assets/docs/FinancialBusinessPlan-Draft_2.pdf" target="_blank">Financial Business Plan Draft 2</a></p>
@@ -201,7 +211,7 @@ nav {
                         <!-- SLIDE 5 -->
                         <div class="slide-conts" data-current="a5" data-next="a6" data-prev="a4">
                                 <h1>Marketing Plan</h1>
-
+                                <br>
                                 <p>Our Marketing Plan outlines our strategies and approaches for promoting our product.
                                         This document contains the following sections:</p>
                                 <ul>
@@ -221,7 +231,7 @@ nav {
                         <!-- SLIDE 6 -->
                         <div class="slide-conts" data-current="a6" data-next="a7" data-prev="a5">
                                 <h1>Project Wide Standard</h1>
-
+                                <br>
                                 <p> The project wide standard provides guidelines and rules to describe the expected elements in the XML documents to be interpreted by the software. It will be used to verify each piece of item content in a document, to assure it adheres to the description of the element it is placed in.</p>
                                 <p>The project wide standard ensures consistency, maintainability, and collaboration accross the project.</p>
                                 <br>
@@ -254,7 +264,7 @@ nav {
                         <!-- SLIDE 8 -->
                         <div class="slide-conts" data-current="a8" data-next="a9" data-prev="a7">
                                 <h1>Meeting Minutes and Agendas</h1>
-
+                                <br>
                                 <p>Minutes are taken during meetings to document the discussions during and actions to be undertken after each meeting. Meeting minutes are filled in during the meeting by a QA and Documentation Manager An agenda for each meeting is set before by a Project Manager and available before each meeting for group members to familiarise themselves</p>
 
                                 <br>
@@ -299,8 +309,8 @@ nav {
                         <!-- SLIDE 10 GUI -->
 
                         <div class="slide-conts" data-current="a10" data-next="a11" data-prev="a9">
-                        <h1>GUI Demos and Source code</h1>
-
+                                <h1>GUI Demos and Source code</h1>
+                                <br>
                                 <p> UX Designs with Figma and GUI Demo Designs with JavaFX and Gradle: On the left is a interactive login page for DocDuck and on the right is a UX design of a home page with scrollable text.</p>
                                 <br>
                                 <!-- Add in an image, the max-width defines the width the image spreads across the page -->
@@ -321,15 +331,7 @@ nav {
                                 <!-- HTML Here -->
 
                         </div>
-            
 
-                        <!-- ADD MORE SLIDES HERE AS REQUIRED -->
-                        <!-- Copy and paste one of the slide examples above and edit it below -->
-                        <!-- All slide information should be placed within the following code (Uncomment code if using it) -->
-
-                        <!-- <div class="slide-conts" data-current="a3" data-next="a1"> 
-                        
-                        </div> -->
                         <!-- SLIDE 11  Testing -->
                         <div class="slide-conts" data-current="a12" data-next="a1" data-prev="a11">
                                 <h1>TDD Example</h1>
@@ -340,6 +342,14 @@ nav {
                                 <h3><a href="assets/docs/tdd/TDD_example.pdf" target="_blank">TDD Example for Login System</a></h3>
 
                         </div>
+
+                        <!-- ADD MORE SLIDES HERE AS REQUIRED -->
+                        <!-- Copy and paste one of the slide examples above and edit it below -->
+                        <!-- All slide information should be placed within the following div code (Uncomment the code below if using it) -->
+
+                        <!-- <div class="slide-conts" data-current="a3" data-next="a1"> 
+                        
+                        </div> -->
                                       
                         <!-- Buttons to go to next slide -->
                         <div class="slide-buttons">
