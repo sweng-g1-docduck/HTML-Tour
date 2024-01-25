@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Example guided tour presented through some HTML slides
+<!-- Guided tour presented through some HTML slides
   -- Everything stored in one page
   -->
 
@@ -64,7 +64,12 @@ nav {
 
         display: flex;
         justify-content: center;
-        align-items: stretch;
+        align-items: center;
+}
+
+.slide-container > .slide-buttons button {
+        margin: 0 20px;
+        font-size: 1.7rem
 }
 
 .center {
@@ -350,6 +355,7 @@ nav {
                                       
                         <!-- Buttons to go to next slide -->
                         <div class="slide-buttons">
+                                <button onclick="prevSlide()">Previous Slide</button>
                                 <button onclick="nextSlide()">Next Slide</button>
                         </div>
                         
@@ -374,6 +380,27 @@ nav {
                                         if ( slides[i].dataset.current == next )
                                         {
                                                 console.log("Switched to next slide");
+                                                slides[i].id="active";
+                                        }
+                                }
+                        }
+                        function prevSlide()
+                        {
+                                // get list of all slides
+                                const slides = document.querySelectorAll(".slide-conts");
+
+                                // get current active slide and remove active id
+                                const curr_slide = document.querySelector("#active");
+                                curr_slide.id = "";
+
+                                //get previous slide with data-current == data-prev
+                                let prev = curr_slide.dataset.prev;
+
+                                for (let i = 0; i < slides.length; i++)
+                                {
+                                        if (slides[i].dataset.current == prev)
+                                        {
+                                                console.log("Switched to prev slide");
                                                 slides[i].id="active";
                                         }
                                 }
