@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xml:lang="EN">
+
+
+  <!-- type definitions -->
+  <xs:simpleType name="colourType">
+    <xs:annotation>
+      <xs:documentation> The colour as a HEX string for an attribute or element. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <!--RGBA value -->
+      <xs:pattern value="[#][a-fA-F0-9]{8}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="volumeType">
+    <xs:annotation>
+      <xs:documentation> The volume level of any audio or media. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="panType">
+    <xs:annotation>
+      <xs:documentation> The stereo left-right balance of any audio or media. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="-1" />
+      <xs:maxInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rotationType">
+    <xs:annotation>
+      <xs:documentation> The rotation of an attribute or element on the slide. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0" />
+      <xs:maxExclusive value="360" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="valuelist">
+    <xs:annotation>
+      <xs:documentation> A list containing Strings. </xs:documentation>
+    </xs:annotation>
+    <xs:list itemType="xs:string" />
+  </xs:simpleType>
+
+  <xs:simpleType name="originType">
+    <xs:annotation>
+      <xs:documentation> The origin for an attribute or element. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="CENTRE|CORNER" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--attribute group that can be assigned as group in complex type definitions -->
+  <xs:attributeGroup name="position">
+    <xs:attribute name="xCoordinate" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation> The x coordinate of the item within the slide. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="yCoordinate" type="xs:int" use="required">
+      <xs:annotation>
+        <xs:documentation> The y coordinate of the item within the slide. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="textBox">
+    <xs:attribute name="width" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation> The width of the text box. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="height" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation> The height of the text box. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="text" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The text to be displayed in the text box. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="font" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The font to use for displaying the text. The application should provide the appropriate font.
+          If the font given is not supported, the application should fallback on a default font.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="fontSize" type="xs:int" use="optional" default="10">
+      <xs:annotation>
+        <xs:documentation> The size of the text to be displayed. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <!--contains colour attribute group -->
+    <xs:attribute name="fontColour" type="colourType" use="required">
+      <xs:annotation>
+        <xs:documentation> The colour of the text to be displayed. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="characterSpacing" type="xs:decimal" use="optional" default="1.5">
+      <xs:annotation>
+        <xs:documentation> The spacing between letters to adjust the visual density of the text. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="lineSpacing" type="xs:decimal" use="optional" default="1.5">
+      <xs:annotation>
+        <xs:documentation> The spacing between lines to adjust the visual density of the text. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="hasBackground" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation> Indicates if the textBox should have a background. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="cornerRadius" type="xs:decimal" use="optional">
+      <xs:annotation>
+        <xs:documentation> The corner radius of the textBox. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="backgroundColour" type="colourType" use="optional">
+      <xs:annotation>
+        <xs:documentation> The background colour of the textBox. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="textOrigin" type="originType" use="optional">
+      <xs:annotation>
+        <xs:documentation> The text origin within the textBox. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="position" />
+    <xs:attributeGroup ref="border" />
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="audio">
+    <xs:attribute name="audioURL" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The URL to the audio source. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="audioStartTime" type="xs:nonNegativeInteger" use="optional" default="0">
+      <xs:annotation>
+        <xs:documentation> The timestamp to start the playback of the audio from. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="audioStopTime" type="xs:nonNegativeInteger" use="optional" default="1">
+      <xs:annotation>
+        <xs:documentation> The timestamp to stop the playback of the audio. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="audioVolume" type="volumeType" use="required">
+      <xs:annotation>
+        <xs:documentation> The volume of the audio. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="audioLooping" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation> Whether the audio should loop and repeat upon reaching the end of its duration.
+          Or whether it should stop the first time it reaches the end.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="panning" type="panType" use="required">
+      <xs:annotation>
+        <xs:documentation> The stereo left-right balance of the audio. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="video">
+    <xs:attribute name="videoURL" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The URL to the audio source. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="videoStartTime" type="xs:nonNegativeInteger" use="optional" default="0">
+      <xs:annotation>
+        <xs:documentation> The timestamp to start the playback of the video from. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="videoStopTime" type="xs:nonNegativeInteger" use="optional" default="1">
+      <xs:annotation>
+        <xs:documentation> The timestamp to stop the playback of the video. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="videoVolume" type="volumeType" use="required">
+      <xs:annotation>
+        <xs:documentation> The volume of the video. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="videoLooping" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation> Whether the video should loop and repeat upon reaching the end of the clip.
+          Or whether it should stop the first time it reaches the end.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="videoScale" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation> The scale of the video; the size it takes up in the given space on the slide. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="position" />
+    <xs:attributeGroup ref="border" />
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="image">
+    <xs:attribute name="imageURL" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The URL to the audio source. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="imageScale" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation> The scale of the image; the size it takes up in the given space on the slide. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="imageRotation" type="rotationType" use="optional" default="0">
+      <xs:annotation>
+        <xs:documentation> The rotation that the image is displayed on the slide. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="position" />
+    <xs:attributeGroup ref="border" />
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="shape">
+    <xs:attribute name="type" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The type of shape, i.e. a square, circle, triangle. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="shapeColour" type="colourType" use="required">
+      <xs:annotation>
+        <xs:documentation> The colour of the shape to be displayed. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="shapeRotation" type="rotationType" use="optional" default="0">
+      <xs:annotation>
+        <xs:documentation> The rotation that the shape is displayed on the slide. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="shapeScale" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation> The scale of the shape; the size it takes up in the given space on the slide. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+	<xs:attribute name="radius" type="xs:decimal" use="optional">
+		<xs:annotation>
+            <xs:documentation> The radius of the shape; overrides scale if the shape takes a radius. </xs:documentation>
+        </xs:annotation>
+	</xs:attribute>
+	<xs:attribute name="radius2" type="xs:decimal" use="optional">
+		<xs:annotation>
+            <xs:documentation> The radius of the shape; overrides scale if the shape takes a radius. </xs:documentation>
+        </xs:annotation>
+	</xs:attribute>
+	<xs:attribute name="width" type="xs:decimal" use="optional">
+		<xs:annotation>
+            <xs:documentation> The width of the shape; overrides scale if the shape takes a width. </xs:documentation>
+        </xs:annotation>
+	</xs:attribute>
+	<xs:attribute name="height" type="xs:decimal" use="optional">
+		<xs:annotation>
+            <xs:documentation> The height of the shape; overrides scale if the shape takes a height. </xs:documentation>
+        </xs:annotation>
+	</xs:attribute>
+    <xs:attributeGroup ref="position" />
+    <xs:attributeGroup ref="border" />
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="border">
+    <xs:attribute name="borderWidth" type="xs:decimal" use="optional">
+      <xs:annotation>
+        <xs:documentation> Width of the border around an element or shape. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="borderColour" type="colourType" use="optional">
+      <xs:annotation>
+        <xs:documentation> The colour of the border. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="info">
+    <xs:attribute name="author" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The author of the slide or presentation. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="dateCreated" type="xs:dateTime" use="required">
+      <xs:annotation>
+        <xs:documentation> The date the slide or presentation was created. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="comment" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> A comment associated with a slide or presentation to provide any extra info about the slide or presentation,
+          either to aid creation in the application or to add to the metadata.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="button">
+    <xs:attribute name="text" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation> The text to place on the button. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="eventID" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation> The eventID of the event you want the button to do when clicked. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="width" type="xs:decimal" use="optional" default="100">
+      <xs:annotation>
+        <xs:documentation> The width of the button to appear on the screen. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="height" type="xs:decimal" use="optional" default="50">
+      <xs:annotation>
+        <xs:documentation> The height of the button to appear on the screen. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="cornerRadius" type="xs:int" use="optional" default="0">
+      <xs:annotation>
+        <xs:documentation> The corner radius of the button. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="font" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The font to use for displaying the text. The application should provide the appropriate font.
+          If the font given is not supported, the application should fallback on a default font.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="fontSize" type="xs:int" use="optional" default="10">
+      <xs:annotation>
+        <xs:documentation> The size of the text to be displayed. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <!--contains colour attribute group -->
+    <xs:attribute name="fontColour" type="colourType" use="optional" default="#000000ff">
+      <xs:annotation>
+        <xs:documentation> The colour of the text to be displayed. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="clickColour" type="colourType" use="optional">
+      <xs:annotation>
+        <xs:documentation> The colour of the button when clicked. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="hoverColour" type="colourType" use="optional">
+      <xs:annotation>
+        <xs:documentation> The colour of the button when hovered over. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="backgroundColour" type="colourType" use="optional" default="#ffffffff">
+      <xs:annotation>
+        <xs:documentation> The background colour of the button. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="hasBackground" type="xs:boolean" use="optional" default="true">
+      <xs:annotation>
+        <xs:documentation> Indicates if the button should have a background colour (not transparent). </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="position" />
+    <xs:attributeGroup ref="border" />
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="hyperlink">
+    <xs:attribute name="URL" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The URL for the hyperlink. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="font" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The font to use for displaying the text. The application should provide the appropriate font.
+          If the font given is not supported, the application should fallback on a default font.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="fontSize" type="xs:int" use="optional" default="10">
+      <xs:annotation>
+        <xs:documentation> The size of the text to be displayed. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <!--contains colour attribute group -->
+    <xs:attribute name="fontColour" type="colourType" use="optional" default="#000000ff">
+      <xs:annotation>
+        <xs:documentation> The colour of the text to be displayed. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="lineSpacing" type="xs:decimal" use="optional" default="1.5">
+      <xs:annotation>
+        <xs:documentation> The spacing between lines to adjust the visual density of the text. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="text" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation> The text for the hyperlink. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="position" />
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="backgroundColour">
+    <!--contains colour attribute group -->
+    <xs:attribute name="colour" type="colourType" use="required">
+      <xs:annotation>
+        <xs:documentation> The colour of the background of the slide. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="comboBox">
+    <xs:attribute name="defaultName" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The default name that appears at the top of the dropdown list. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="values" type="valuelist" use="required">
+      <xs:annotation>
+        <xs:documentation> The values that appear as options within the dropdown list. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="width" type="xs:int" use="optional">
+      <xs:annotation>
+        <xs:documentation> The width of the button to appear on the screen. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="height" type="xs:int" use="optional">
+      <xs:annotation>
+        <xs:documentation> The height of the button to appear on the screen. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="font" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The font to use for displaying the text. The application should provide the appropriate font.
+          If the font given is not supported, the application should fallback on a default font.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="fontSize" type="xs:int" use="optional" default="10">
+      <xs:annotation>
+        <xs:documentation> The size of the text to be displayed. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <!--contains colour attribute group -->
+    <xs:attribute name="fontColour" type="colourType" use="optional" default="#000000ff">
+      <xs:annotation>
+        <xs:documentation> The colour of the text to be displayed. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="lineSpacing" type="xs:decimal" use="optional" default="1.5">
+      <xs:annotation>
+        <xs:documentation> The spacing between lines to adjust the visual density of the text. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="position" />
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="textField">
+    <xs:attribute name="password" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation> Indicates if this field is a normal text field or a password field. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="passwordButton" type="xs:boolean" use="optional" default="false">
+      <xs:annotation>
+        <xs:documentation> Indicates if this field should have a show/hide password button. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="width" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation> The width of the text field. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="height" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation> The height of the text field. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="cornerRadius" type="xs:int" use="optional" default="0">
+      <xs:annotation>
+        <xs:documentation> The corner radius of the text field. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="promptText" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation> The text to be displayed as a prompt in the textField. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="initialText" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation> The initial text to fill the textField. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="font" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation> The font to use for displaying the text. The application should provide the appropriate font.
+          If the font given is not supported, the application should fallback on a default font.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="fontSize" type="xs:int" use="optional" default="10">
+      <xs:annotation>
+        <xs:documentation> The size of the text to be displayed. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <!--contains colour attribute group -->
+    <xs:attribute name="fontColour" type="colourType" use="required">
+      <xs:annotation>
+        <xs:documentation> The colour of the text to be displayed. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="backgroundColour" type="colourType" use="optional" default="#ffffffff">
+      <xs:annotation>
+        <xs:documentation> The colour of the background of the text field. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="promptTextColour" type="colourType" use="optional" default="#808080ff">
+      <xs:annotation>
+        <xs:documentation> The colour of the background of the text field. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="hoverColour" type="colourType" use="optional">
+      <xs:annotation>
+        <xs:documentation> The colour of the text when hovered over. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="highlightColour" type="colourType" use="optional" default="#005A9Cff">
+      <xs:annotation>
+        <xs:documentation> The colour of the highlight when text is selected. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="fontHighlightColour" type="colourType" use="optional" default="#ffffffff">
+      <xs:annotation>
+        <xs:documentation> The colour of the font when highlighted. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="selectColour" type="colourType" use="optional">
+      <xs:annotation>
+        <xs:documentation> The colour of the text field when selected. </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+
+    <xs:attributeGroup ref="position" />
+    <xs:attributeGroup ref="border" />
+  </xs:attributeGroup>
+  
+  <!--slide complex type -->
+
+  <xs:complexType name="slideType">
+    <xs:sequence>
+      <xs:element name="id" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="id" type="xs:string" use="required">
+            <xs:annotation>
+              <xs:documentation> An ID for the slide to identify it and store it in a database if required. </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="textBox" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation> This element carries information about a block of text to be displayed on the slide.
+            The block of text is displayed within a text box which has a position and size.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attributeGroup ref="textBox" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="shape" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation> This element carries information about a shape to be displayed on the slide. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attributeGroup ref="shape" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="image" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation> This element carries information about an image to be displayed on the slide. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attributeGroup ref="image" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="audio" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation> This element carries information about an audio source to be displayed on the slide. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attributeGroup ref="audio" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="video" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation> This element carries information about a video to be displayed on the slide. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attributeGroup ref="video" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="button" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation> This element carries information about a button to be displayed on the slide. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attributeGroup ref="button" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hyperlink" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation> This element carries information about a hyperlink to be displayed on the slide. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attributeGroup ref="hyperlink" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="backgroundColour" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation> This element carries information about the background colour of the slide. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attributeGroup ref="backgroundColour" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="comboBox" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation> This element carries information about a combo box (drop down list) to be displayed on the slide. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attributeGroup ref="comboBox" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="textField" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation> This element carries information about a text field or password field to be displayed on the slide. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attributeGroup ref="textField" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- element containing multiple atribute groups -->
+
+  <xs:element name="slideshow">
+    <xs:annotation>
+      <xs:documentation> This element carries information about the slideshow/presentation the application will run. </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="slide" minOccurs="1" maxOccurs="unbounded" type="slideType">
+          <xs:annotation>
+            <xs:documentation> This element carries information about the slides to be displayed on the slideshow/presentation. </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="info" minOccurs="1" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation> This element carries information about the slide. </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attributeGroup ref="info" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  
+   <xs:simpleType name="machineStatus">
+    <xs:annotation>
+      <xs:documentation> The status for a machine. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="ONLINE|MAINTAINANCE|OFFLINE" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="roleType">
+    <xs:annotation>
+      <xs:documentation> The types of user roles. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="OPERATOR|ENGINEER|ADMIN" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="partInfo">
+    <xs:sequence>
+      <xs:element name="part" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="stockNumber" type="xs:int"/>
+            <xs:element name="serialNumber" type="xs:string"/>
+            <xs:element name="quantity" type="xs:int"/>
+            <xs:element name="location" type="xs:string"/>
+            <xs:element name="datasheetRef" type="xs:string"/>
+            <xs:element name="purchaseLocationRef" type="xs:string"/>
+          </xs:sequence>
+          <xs:attribute type="xs:int" name="id" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="componentInfo">
+    <xs:sequence>
+      <xs:element name="component" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="stockNumber" type="xs:int"/>
+            <xs:element name="serialNumber" type="xs:string"/>
+            <xs:element name="quantity" type="xs:int"/>
+            <xs:element name="location" type="xs:string"/>
+            <xs:element name="datasheetRef" type="xs:string"/>
+            <xs:element name="purchaseLocationRef" type="xs:string"/>
+            <xs:element name="parts" type="partInfo"/>
+          </xs:sequence>
+          <xs:attribute type="xs:int" name="id" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="machineData">
+    <xs:sequence>
+      <xs:element name="machine" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="status" type="machineStatus"/>
+            <xs:element name="serialNumber" type="xs:string"/>
+            <xs:element name="location" type="xs:string"/>
+            <xs:element name="imageRef" type="xs:string"/>
+            <xs:element name="datasheetRef" type="xs:string"/>
+            <xs:element name="purchaseLocationRef" type="xs:string"/>
+            <xs:element name="components" type="componentInfo"/>
+            <xs:element name="parts" type="partInfo"/>
+          </xs:sequence>
+          <xs:attribute type="xs:int" name="id" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="userData">
+    <xs:sequence>
+      <xs:element name="user" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="username" type="xs:string"/>
+            <xs:element name="password" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="role" type="roleType"/>
+          </xs:sequence>
+          <xs:attribute type="xs:int" name="id" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="machineReport">
+    <xs:sequence>
+      <xs:element name="report" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="media" type="xs:string"/>
+            <xs:element name="machineID" type="xs:string"/>
+            <xs:element name="userID" type="xs:int"/>
+          </xs:sequence>
+          <xs:attribute type="xs:int" name="id" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="docduckData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="machineData" type="machineData" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="userData" type="userData" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="machineReport" type="machineReport" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>
