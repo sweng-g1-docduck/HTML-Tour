@@ -1,0 +1,152 @@
+.main {
+  background-color: #8cbdff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.main .overlap-group-wrapper {
+  background-color: #8cbdff;
+  width: 1280px;
+  height: 844px;
+}
+
+.main .overlap-group {
+  position: relative;
+  width: 1211px;
+  height: 771px;
+  top: 40px;
+  left: 35px;
+  background-image: url(./img/rectangle-2.png);
+  background-size: 100% 100%;
+}
+
+.main .docduck-logo-with {
+  position: absolute;
+  width: 529px;
+  height: 277px;
+  top: 105px;
+  left: 341px;
+  object-fit: cover;
+}
+
+.main .button {
+  position: absolute;
+  width: 211px;
+  height: 41px;
+  top: 584px;
+  left: 500px;
+  background-color: #8cbdff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.main .frame {
+  display: inline-flex;
+  position: relative;
+  top: 12px;
+  left: 8px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.main .call {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "SF Pro Display-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.main .div {
+  display: flex;
+  width: 263px;
+  padding: 9px 181px 9px 13px;
+  position: absolute;
+  top: 439px;
+  left: 474px;
+  background-color: var(--gray-6);
+  border-radius: 10px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.main .search {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 600;
+  color: var(--gray-3);
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.main .frame-2 {
+  display: flex;
+  width: 263px;
+  padding: 9px 181px 9px 13px;
+  position: absolute;
+  top: 382px;
+  left: 474px;
+  background-color: var(--gray-6);
+  border-radius: 10px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.main .input {
+  margin-left: -0.5px;
+  margin-right: -0.5px;
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 600;
+  color: var(--gray-3);
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.main .overlap {
+  position: absolute;
+  width: 108px;
+  height: 48px;
+  top: 496px;
+  left: 551px;
+  background-color: #fbb12e;
+  border-radius: 12px;
+}
+
+.main .text-wrapper {
+  position: absolute;
+  top: 13px;
+  left: 34px;
+  font-family: "SF Pro Display-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}

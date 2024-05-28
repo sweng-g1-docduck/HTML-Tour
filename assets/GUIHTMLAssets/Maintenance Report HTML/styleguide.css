@@ -1,0 +1,17 @@
+:root {
+  --white: rgba(255, 255, 255, 1);
+  --gray-1: rgba(184, 187, 195, 1);
+  --black: rgba(29, 30, 33, 1);
+  --yellow: rgba(221, 156, 30, 1);
+  --gray-2: rgba(220, 222, 226, 1);
+  --gray-3: rgba(114, 115, 119, 1);
+  --gray-4: rgba(244, 245, 248, 1);
+  --gray-5: rgba(233, 234, 237, 1);
+  --green: rgba(58, 169, 129, 1);
+  --red: rgba(221, 76, 30, 1);
+  --blue: rgba(67, 138, 249, 1);
+  --gray-6: rgba(237, 238, 240, 1);
+  --almost-white: rgba(255, 255, 255, 0.75);
+  --a-little-black: rgba(0, 0, 0, 0.1);
+  --shadow-cell: 0px 0px 42px 0px rgba(0, 0, 0, 0.08);
+}
