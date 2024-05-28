@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+   <!-- add more namespaces-->
+    
+   <!-- type definitions-->
+    <xs:simpleType name="RGBtype">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="volumeType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="panType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-1"/>
+            <xs:maxInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="rotationType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="360"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!--as percentage of audio/video-->
+    <xs:simpleType name="stopStartTimeType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+   
+    <!--attribute group that can be assigned as group in complex type definitions -->
+    <xs:attributeGroup name="position">
+        <xs:attribute name="xCoordinate" type="xs:decimal" use="required"/>
+        <xs:attribute name="yCoordinate" type="xs:decimal" use="required"/>
+    </xs:attributeGroup>
+    
+    
+    <xs:attributeGroup name="colour">
+        <xs:attribute name="red" type="RGBtype" use="required"/>
+        <xs:attribute name="green" type="RGBtype" use="required"/>
+        <xs:attribute name="blue" type="RGBtype" use="required"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="text">
+        <xs:attribute name="font" type="xs:string" use="required"/>
+        <xs:attribute name="fontSize" type="xs:int" use="optional" default="10"/>
+        <!--contains colour attribute group-->
+        <xs:attributeGroup ref="colour"/>
+        <xs:attribute name="characterSpacing" type="xs:decimal" use="optional" default="1.5"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="audio">
+        <xs:attribute name="audioURL" type="xs:string" use="required"/>
+        <xs:attribute name="audioStartTime" type="stopStartTimeType" use="optional" default="0"/>
+        <xs:attribute name="audioStopTime" type="stopStartTimeType" use="optional" default="1"/>
+        <xs:attribute name="audioVolume" type="volumeType" use="required"/>
+        <xs:attribute name="audioLooping" type="xs:boolean" use="required"/>
+        <xs:attribute name="panning" type="panType" use="required"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="video">
+        <xs:attribute name="videoURL" type="xs:string" use="required"/>
+        <xs:attribute name="videoStartTime" type="stopStartTimeType" use="optional" default="0"/>
+        <xs:attribute name="videoStopTime" type="stopStartTimeType" use="optional" default="1"/>
+        <xs:attribute name="videoVolume" type="volumeType" use="required"/>
+        <xs:attribute name="videoLooping" type="xs:boolean" use="required"/>       
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="image">
+        <xs:attribute name="imageURL" type="xs:string" use="required"/>
+        <xs:attribute name="scale" type="xs:decimal" use="required"/>
+        <xs:attribute name="rotation" type="rotationType" use="optional" default="0"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="shape">
+        <xs:attribute name="type" type="xs:string" use="required"/>
+        <xs:attributeGroup ref="colour"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="slide">
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:attributeGroup>
+    
+    <xs:attributeGroup name="info">
+        <xs:attribute name="author" type="xs:string" use="required"/>
+        <xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+        <xs:attribute name="comment" type="xs:string" use="required"/>
+    </xs:attributeGroup>
+    
+   
+   <!--slide complex type-->
+   
+    <xs:complexType name="slideType">
+        <xs:sequence>
+            <xs:element name="slide" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attributeGroup ref="slide"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="image" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attributeGroup ref="image"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="text" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attributeGroup ref="text"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="audio" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attributeGroup ref="audio"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="video" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attributeGroup ref="video"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- element containing multiple atribute groups-->
+    
+    <xs:element name="slideshow">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="slide" minOccurs="1" maxOccurs="unbounded" type="slideType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

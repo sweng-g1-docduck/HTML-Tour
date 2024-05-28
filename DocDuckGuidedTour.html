@@ -77,10 +77,29 @@ nav {
 }
 
 .center {
+        text-align: center;
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
+        
+}
+
+.centerImg {
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+}
+
+.left {
+        float: left;
+        margin: 0 20px;
+}
+
+.right {
+        float: right;
+        margin: 0 20px;
 }
 
 </style>
@@ -91,9 +110,12 @@ nav {
                 </nav>
 
                 <div class="slide-container">
-                        <div class="slide-conts" id="active" data-current="a1" data-next="a2" data-prev="a12">
+                        <div class="slide-conts" id="active" data-current="a1" data-next="a2" data-prev="a13">
+                                <br>
+                                <img src="assets/img/docducklogo.png" style="max-width: 60%;" class="centerImg" /> 
+                                <br>
                                 <!-- Header/Title -->
-                                <h1>DocDuck Guided Tour</h1>
+                                <h1 class="center">DocDuck HTML Guided Tour</h1>
                                 <!-- <br> is a break to add a bit of white space between sections -->
                                 <br>
                                 <h2>Introduction</h2>
@@ -105,24 +127,9 @@ nav {
                                 <br>
                                 <h2>About DocDuck</h2>
                                 <br>
-                                <p>DocDuck explanation here........</p>
-                                <br>
-                                <p>More context, perhaps add an image in</p>
-                                <br>
-                                <!-- This is how you hyperlink something. 
-                                target _blank means it also opens in a new page -->
-                                <p><a href="https://york.ac.uk" target="_blank">link</a></p>
-                                <br>
-                                <!-- Bullet Points -->
-                                <ul>
-                                        <li> Summary Bullet points!</li>
-                                        <li> More Bullet Points</li>
-                                        <li> Image Example Below</li>
-                                </ul>
-                                <br>
-                                <!-- Add in an image, the max-width defines the width the image spreads across the page -->
-                                <p> Replace this image with our logo.. Place image somewhere suitable on the slide</p>
-                                <img src="assets/img/image.jpg" style="max-width: 80%;" class="center" />       
+                                <p>DocDuck is a maintenance engineering app designed to assist with documentation in the engineering workspace, From keeping track of calibration, audit and diagnostic dates to having a full virtual library of every breakdown ever worked on and every part ever used or purchased. DocDuck is capable of all these features and more.</p>
+                     
+                                
                         </div>
 
                         <!-- SLIDE 2 -->
@@ -131,12 +138,12 @@ nav {
                                 <h1>Quality Assurance Manual</h1>
                                 <br>
 
-                                <p> The Quality Assurance Manual is used to ensure quality is maintained suring the project. The document is designed as refernce for employees, clients and stakeholders.
+                                <p> The Quality Assurance Manual is used to ensure quality is maintained suring the project. The document is designed as reference for employees, clients and stakeholders.
                                         It is intended to ensure that high quality and consistent standards are adhered to throughout the  company's activities. The document establishes the framework for each role and their 
-                                        responsibilities, the deliverables and project management and development methodology </p>
+                                        responsibilities, the deliverables and project management and development methodologies </p>
                                 <br>
                                 <p>Each member of the group completed the section for their primary role. This ensures that they are understand the level of quality expected in their contributions to the project.  
-                                        Each member generated a list of risk managements and quality assurance metrics related to their individual responsibilites. This was to ensure a specific and measurable metric of quality. The QA Manual drafts were sent to the client for review and feedback was integrated for each draft. The final version was reviewed by the whole group and was updated after release</p>
+                                        Each member has generated a list of risk managements and quality assurance metrics related to their individual responsibilites. This was to ensure a specific and measurable metric of quality. The QA Manual drafts were sent to the client for review and feedback was integrated for each draft. The final version was reviewed by the whole group and was updated after release</p>
                                 <br>
                                 <p>The Project Management Methodology serves as an important reference for the design and programming components of the project. It clearly lays out the specific method to be used for successful 
                                         implementation of agile development. This is to ensure that the programming created by each programmer is compatible with each other</p>
@@ -145,19 +152,20 @@ nav {
                                 <br>
                                 
                                 <!-- File needs adding into /assets/docs -->
-                                <p><a href="assets/docs/qa_manual/G1_DocDuck Quality_Assurance_Manual_v0.1.pdf" target="_blank">Quality Assurance Manual Draft 1</a></p>
-                                <p><a href="assets/docs/qa_manual/G1_DocDuck_Quality_Assurance_Manual_v0.2.pdf" target="_blank">Quality Assurance Manual Draft 2</a></p>
+                                <p><a href="assets/docs/qa_manual/G1_DocDuck Quality_Assurance_Manual_v0.1.pdf" target="_blank">Quality Assurance Manual Draft 0.1</a></p>
+                                <p><a href="assets/docs/qa_manual/G1_DocDuck_Quality_Assurance_Manual_v0.2.pdf" target="_blank">Quality Assurance Manual Draft 0.2</a></p>
                                 <p><a href="assets/docs/qa_manual/G1_DocDuck_Quality_Assurance_Manual_v1.0.pdf" target="_blank">Quality Assurance Manual Release 1</a></p>
                                 <p><a href="assets/docs/qa_manual/G1_DocDuck_Quality_Assurance_Manual_v1.1.pdf" target="_blank">Quality Assurance Manual Release 1.1</a></p>
+                                <p><a href="assets/docs/qa_manual/G1_DocDuck_Quality_Assurance_Manual_v1.2.pdf" target="_blank">Quality Assurance Manual Release 1.2</a></p>
                                 
                         </div>
 
                         <!-- SLIDE 3 -->
                         <div class="slide-conts" data-current="a3" data-next="a4" data-prev="a2">
-                                <h1>Function Specfication</h1>
-
+                                <h1>Functional Specification</h1>
+                                <br>
                                 <p>The Function Specification outlines the functionality and requirements for the software. It is designed to lay out, in easy to understand terms, the specifics of the 
-                                        project. It acts as a blueprint for the dvelopers and designers when creating the program. It contains sections describing:  </p>
+                                        project. The Functional Specification acts as a blueprint for the developers and designers when creating the program. The document contains sections describing:  </p>
                                         <ul>
                                                 <li>Product Overview</li>
                                                 <li>Product Scope</li>
@@ -168,9 +176,9 @@ nav {
                                                 <li>Integration Requirements</li>
                                         </ul>
                                 <br>        
-                                <p>The requirements and use cases are used to facilitate the ease of use of object oriented programming and agile development. The Project Overview and Scope ensure that stakeholders can clearly and concidely see the scope of the project so that they can easily understand what they are investing in.</p>
+                                <p>The requirements and use cases are used to facilitate the ease of use of object oriented programming and agile development. The Project Overview and Scope ensure that stakeholders can clearly and concisely see the scope of the project so that they can easily understand what they are investing in.</p>
                                 <br>
-                                <p>To ensure that the Functional Specification was completed to a high standard, the individual subsections were diveded between the group members. Draft versions were sent to the client for feedback which was integrated into the next release. The document was reviewed by the whole group prior to release and continued to be updated after release.</p> 
+                                <p>To ensure that the Functional Specification was completed to a high standard, the individual subsections were divided between the group members. Draft versions were sent to the client for feedback which was integrated into the next release. The document was reviewed by the whole group prior to release and continued to be updated after release.</p> 
                                 <br>
                                 <p>Below are links to draft and released versions of the document:</p>
                                 <br>
@@ -186,16 +194,30 @@ nav {
                         <!-- SLIDE 4 -->
                         <div class="slide-conts" data-current="a4" data-next="a5" data-prev="a3">
                                 <h1>Financial Business Plan</h1>
-
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
+                                <br>
+                                <p>The Financial Business Plan outlines the financial goals and objectives for potential investors. It provides a detailed overview of the product, the company that will create it as well as the financial plans and strategies that will ensure the project meets its financial targets. The plan is designed to convince an investor to invest in the product and to give them the confidence and vision to support it.</p>
+                                <br>
+                                <p>The Financial Business Plan was completed largely by the Financial Managers with assistance from some other members.</p>
+                                <br>
+                                <p>The Business Plan uses graphs and tables to lay out the required costs for completion of the project, breaking these down into week-by-week and cost-by-cost bases. This allows a potential investor to see an accurate and itemised vue of where and when costs are expected to occur.</p>
+                                <br>
+                                <p>Below are links to draft and released versions of the document:</p>
+                                <br>
                                 <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/FinancialBusinessPlan-Draft_1.pdf" target="_blank">Financial Business Plan Draft 1</a></p>
-                                <p><a href="assets/docs/FinancialBusinessPlan-Draft_2.pdf" target="_blank">Financial Business Plan Draft 2</a></p>
-                                <p><a href="assets/docs/FinancialBusinessPlan.pdf" target="_blank">Financial Business Plan Download</a></p>
+                                <p><a href="assets/docs/finance/G1 DocDuck Financial Business Plan v0.1.pdf" target="_blank">Financial Business Plan Draft 1</a></p>
+                                <p><a href="assets/docs/finance/G1 DocDuck Financial Business Plan v0.2.pdf" target="_blank">Financial Business Plan Draft 2</a></p>
+                                <p><a href="assets/docs/finance/G1 DocDuck Financial Business Plan v1.0.pdf" target="_blank">Financial Business Plan Release 1</a></p>
+                                <br>
+
+								                <h2> Financial Reports </h2>
+								                <br>
+                                <p>Below are links to the Financial Reports, which document the financial progress of the project. They are used to track our spendings compared to our assigned budget.</p>
+
+                                <br>
+                                <p><a href="assets/docs/finance/DocDuck_Financial_Report_1.pdf" target="_blank">Financial Report 1</a></p>
+                                <p><a href="assets/docs/finance/DocDuck_Financial_Report_2.pdf" target="_blank">Financial Report 2</a></p>
+								                <p><a href="assets/docs/finance/DocDuck_Financial_Report_3.pdf" target="_blank">Financial Report 3</a></p>
+                                <p><a href="assets/docs/finance/DocDuck_Financial_Summary_Report.pdf" target="_blank">Final Financial Summary Report</a></p>
                         </div>
 
                         <!-- SLIDE 5 -->
@@ -222,6 +244,12 @@ nav {
                                         <li>Customer Segmentation - A breakdown of the customer segments, focusing on the B2B
                                                 Business to Business segment. This looks at engineering startups, including their goals,
                                                 frustrations and what problems DocDuck can solve for them.</li>
+                                <h1>Marketing Plan</h1>
+                                <br>
+                                <p>Our Marketing Plan outlines our strategies and approaches for promoting our product.
+                                        This document contains the following sections:</p>
+                                <ul>
+                                        <li>Competitive Market Analysis</li>
                                         <li>Pricing Proposal</li>
                                         <li>Design Theory</li>
                                 </ul>
@@ -255,21 +283,38 @@ nav {
                                 <p><a href="assets/docs/marketing/DocDuckMarketTestingQuestionnaire.pdf" target="_blank">Market Testing Questionnaire</a></p>
                                 <p><a href="assets/docs/marketing/EthicsForm.pdf" target="_blank">Ethics Form</a></p>
                                 
+                                <p>Our product analysis contains market research of our competitors, our Unique Selling Points (USPs), our target audience, and a SWOT analysis.</p>
+                                <p>This document is essential for aligning our marketing strategies and the making of one coherent plan. It is still in its draft form, containing contributions from Noah, Hari, Luke, Jabez and Josh. </p>
+                                <br>
+                                <p>Our first draft can be found below:</p>
+                                <br>
+                                <p><a href="assets/docs/marketing/DocDuckMarketingPlan_Draft1.pdf" target="_blank">Marketing Plan Draft 1</a></p>
+                                <p><a href="assets/docs/marketing/DocDuck_Marketing_Plan_Draft2.pdf" target="_blank">Marketing Plan Draft 2</a></p>
+                                <br>
+                                <h2> Final Version</h2>
+                                <p><a href="assets/docs/marketing/DocDuck_Marketing_Plan.pdf" target="_blank">DocDuck Marketing Plan </a></p>
                         </div>
 
                         <!-- SLIDE 6 -->
                         <div class="slide-conts" data-current="a6" data-next="a7" data-prev="a5">
                                 <h1>Project Wide Standard</h1>
-
-                                <p> Some text about the slide</p>
-                                <ul>
-                                        <li> Bulletpoints!</li>
-                                        <li>More!</li>
-                                </ul>
+                                <br>
+                                <p> The Project Wide Standard provides guidelines and rules to describe the expected elements in the XML documents to be interpreted by the software. It will be used to verify each piece of item content in a document, to assure it adheres to the description of the element it is placed in.</p>
+                                <p>The project wide standard ensures consistency, maintainability, and collaboration accross the project.</p>
+                                <br>
+                                <p>The Project Wide Standard format we have decided to choose, is an XSD Schema. This is the simplest and cleanest method for providing the rules for XML files to follow.</p>
+                                <br>
                                 <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/ProjectWideStandard-Draft_1.pdf" target="_blank">Project Wide Standard Draft 1</a></p>
-                                <p><a href="assets/docs/ProjectWideStandard-Draft_2.pdf" target="_blank">Project Wide Standard Draft 2</a></p>
-                                <p><a href="assets/docs/ProjectWideStandard.pdf" target="_blank">Project Wide Standard Download</a></p>
+                                <p><a href="assets/docs/pws/PWS-v1.0.xsd" target="_blank">Project Wide Standard Draft 1</a></p>
+                                <p><a href="assets/docs/pws/PWS-v2.0.xsd" target="_blank">Project Wide Standard Draft 2</a></p>
+                                <p><a href="assets/docs/pws/PWS-v3.0.xsd" target="_blank">Project Wide Standard Draft 3</a></p>
+                                <p><a href="assets/docs/pws/PWS-v4.0-final.xsd" target="_blank">Project Wide Standard Release 1 (Final Version)</a></p>
+                                <br>
+                                <p>Additionally, we have developed our own schemas by extending the Project Wide Standard for the purposes of more advanced GUI control and data storage</p>
+                                <br>
+                                <p><a href="assets/docs/pws/DocDuckStandardSchema.xsd" target="_blank">Extended schema with additional GUI elements</a></p>
+                                <p><a href="assets/docs/pws/DocDuckStandardSchema_WithData.xsd" target="_blank">Extended schema with additional data elements</a></p>
+
                         </div>
 
                         <!-- SLIDE 7 -->
@@ -277,7 +322,9 @@ nav {
                                 <h1>Inter Group Contracts</h1>
 
                                 <br>
-                                <p>As part of the requirements to buy in at least two media handlers, 4 contracts have been agreed between DocDuck and BookCook. DocDuck is buying from BookCook the handlers for audio and video and selling them grahpics and text. The contracts lay out what the buyer expects in terms of payment and delivery schedule as well as coding and functional specifications.</p>
+                                <p>As part of the requirements to buy in at least two media handlers, 5 contracts have been agreed between DocDuck and 
+                                        BookCook. DocDuck is buying from BookCook java librarries designed to diplay audio and video and selling them libraries to display graphics and text. 
+                                        The contracts lay out what the buyer expects in terms of payment and delivery schedule as well as coding and functional specifications.</p>
 
                                 <br>
                                 <p>Links to the signed contracts have been provided below:</p>
@@ -285,15 +332,25 @@ nav {
                                 <!-- File needs adding into /assets/docs/ -->
                                 <p><a href="assets/docs/contracts/BookCook-Graphics-Contract-Signed.pdf" target="_blank">Graphics Handler Sale Contract</a></p>
                                 <p><a href="assets/docs/contracts/BookCook-Text-Contract-Signed.pdf" target="_blank">Text Handler Sale Contract</a></p>
+                                
                                 <p><a href="assets/docs/contracts/DocDuck-Audio-Contract-Signed.pdf" target="_blank">Audio Handler Purchase Contract</a></p>
                                 <p><a href="assets/docs/contracts/DocDuck-Video-Contract-Signed.pdf" target="_blank">Video Handler Purchase Contract</a></p>
+                                <br>
+                                <p>An ammendment has been agreed between DocDuck and BoocCook to the Text Handler Contract to clarify the requiremtnes for input format of the library outlined below:</p>
+                                <p><a href="assets/docs/contracts/Text_contract_amendment signed.pdf" target="_blank">Text Handler Sale Contract Amendment</a></p>
+                                <br>
+                                <p>An additional contract has also been agreed between DocDuck and BookCook after the initial contract period for the sale of an addition to the Text Library outside the bounds of the original contract:</p>
+                                <p><a href="assets/docs/contracts/DocDuck_Text_Field_Contract.pdf" target="_blank">Text Input Handler Purchase Contract</a></p>
+                                
+                                
                         </div>
 
                         <!-- SLIDE 8 -->
                         <div class="slide-conts" data-current="a8" data-next="a9" data-prev="a7">
                                 <h1>Meeting Minutes and Agendas</h1>
-
-                                <p>Minutes are taken during meetings to document the discussions during and actions to be undertken after each meeting. Meeting minutes are filled in during the meeting by a QA and Documentation Manager An agenda for each meeting is set before by a Project Manager and available before each meeting for group members to familiarise themselves</p>
+                                <br>
+                                <p>Minutes are taken during meetings to document the discussions during, and actions to be undertaken after, each meeting. Meeting minutes are filled in during the meeting by a QA and Documentation Manager.
+                                        An agenda for each meeting is set before it by a Project Manager and available before each meeting for group members to familiarise themselves</p>
 
                                 <br>
                                 <p>Links to the minutes and agendas have been provided below:</p>
@@ -304,7 +361,12 @@ nav {
                                 <p><a href="assets/docs/minutes/November/" target="_blank">Meeting Minutes and Agendas - November 2023</a></p>
                                 <p><a href="assets/docs/minutes/December/" target="_blank">Meeting Minutes and Agendas - December 2023</a></p>
                                 <p><a href="assets/docs/minutes/January/" target="_blank">Meeting Minutes and Agendas - January 2024</a></p>
+				<p><a href="assets/docs/minutes/February/" target="_blank">Meeting Minutes and Agendas - February 2024</a></p>
+                                <p><a href="assets/docs/minutes/March/" target="_blank">Meeting Minutes and Agendas - March 2024</a></p>
+                                <p><a href="assets/docs/minutes/April/" target="_blank">Meeting Minutes and Agendas - April 2024</a></p>
+                                <p><a href="assets/docs/minutes/May/" target="_blank">Meeting Minutes and Agendas - May 2024</a></p>
                                 <p><a href="assets/docs/minutes/Templates/" target="_blank">Meeting Minutes and Agenda - Templates</a></p>
+								
                         </div>
 
                         <!-- SLIDE 9 -->
@@ -316,15 +378,15 @@ nav {
                                 
                                 <br>
                                         <!-- File needs adding into /assets/docs/ -->
-                                <p><a href="assets/docs/reports/william/" target="_blank">Timesheets - William Betteridge</a></p>
-                                <p><a href="assets/docs/reports/josh/" target="_blank">Timesheets - Josh Bradley</a></p>
-                                <p><a href="assets/docs/reports/noah/" target="_blank">Timesheets - Noah Carter</a></p>
-                                <p><a href="assets/docs/reports/jabez/" target="_blank">Timesheets - Jabez Cheung</a></p>
-                                <p><a href="assets/docs/reports/zhihao/" target="_blank">Timesheets - Zhihao Ma</a></p>
-                                <p><a href="assets/docs/reports/hari/" target="_blank">Timesheets - Hari Mamman</a></p>
-                                <p><a href="assets/docs/reports/james/" target="_blank">Timesheets - James Stevenson</a></p>
-                                <p><a href="assets/docs/reports/rob/" target="_blank">Timesheets - Rob Walker</a></p>
-                                <p><a href="assets/docs/reports/luke/" target="_blank">Timesheets - Luke Warbey</a></p>
+                                <p><a href="assets/docs/reports/William/" target="_blank">Timesheets - William Betteridge</a></p>
+                                <p><a href="assets/docs/reports/Josh/" target="_blank">Timesheets - Josh Bradley</a></p>
+                                <p><a href="assets/docs/reports/Noah/" target="_blank">Timesheets - Noah Carter</a></p>
+                                <p><a href="assets/docs/reports/Jabez/" target="_blank">Timesheets - Jabez Cheung</a></p>
+                                <p><a href="assets/docs/reports/Zhihao/" target="_blank">Timesheets - Zhihao Ma</a></p>
+                                <p><a href="assets/docs/reports/Hari/" target="_blank">Timesheets - Hari Mamman</a></p>
+                                <p><a href="assets/docs/reports/James/" target="_blank">Timesheets - James Stevenson</a></p>
+                                <p><a href="assets/docs/reports/Rob/" target="_blank">Timesheets - Rob Walker</a></p>
+                                <p><a href="assets/docs/reports/Luke/" target="_blank">Timesheets - Luke Warbey</a></p>
                         </div>
 
                         <!-- ADD MORE SLIDES HERE AS REQUIRED -->
@@ -337,15 +399,15 @@ nav {
                         <!-- SLIDE 10 GUI -->
 
                         <div class="slide-conts" data-current="a10" data-next="a11" data-prev="a9">
-                        <h1>GUI Demos and Source code</h1>
-
+                                <h1>GUI Demos and Source code</h1>
+                                <br>
                                 <p> UX Designs with Figma and GUI Demo Designs with JavaFX and Gradle: On the left is a interactive login page for DocDuck and on the right is a UX design of a home page with scrollable text.</p>
                                 <br>
                                 <!-- Add in an image, the max-width defines the width the image spreads across the page -->
                                 <!-- Add a link to the subfolder -->
                                 <p><a href="assets/source-code/">Link to Source Code</a></p>
-
-                                <img src="assets/img/DocDuck%20Login%20Java%20demo.png" style="max-width: 80%;" class="left" />
+                                <br>
+                                <img src="assets/img/DocDuck%20Login%20Java%20demo.png" style="max-width: 35%;" class="left" />
                                 <img src="assets/img/DocDuck%20Home%20Page%20Figma.PNG" style="max-width: 50%;" class="right" />
                         </div>
 
@@ -359,25 +421,43 @@ nav {
                                 <!-- HTML Here -->
 
                         </div>
-            
+
+                        <!-- SLIDE 12  Testing -->
+                        <div class="slide-conts" data-current="a12" data-next="a13" data-prev="a11">
+                                <h1>TDD Example</h1>
+                                <br>
+                                <p> Provided below is a basic structure for the LoginSystem class and its corresponding test class LoginSystemTest in the following PDF file.</p>
+                                <p> The second link is the Test & Integaration Plan</p>
+                                <p> The thrid link is the test reports</p>
+                                <br>
+
+                                <h3><a href="assets/docs/tdd/TDD_example.pdf" target="_blank">TDD Example for Login System</a></h3>
+                                <h3><a href="assets/docs/tdd/DocDuck_TestingAndIntegration_Plan.pdf" target="_blank">Test & Integaration Plan</a></h3>
+                                <h3><a href="assets/docs/tdd/TestReport/" target="_blank"> Test Reports</a></h3>      
+
+                        </div>
+
+                        <!-- SLIDE 13 Version Control -->
+                        <div class="slide-conts" data-current="a13" data-next="a1" data-prev="a12">
+                                <h1>Version Control Examples Within Project</h1>
+                                <br>
+                                <p> In our project we have an organisation on GitHub with multiple Repositories where we all contribute to documents from Overleaf (Latex), Java and HTML. .</p>
+                                <br>
+                                <p> On the Left is an example of Commits and Branches within out HTML tour and on the right is our Repositories for our project so far.</p>
+                                <br>
+                                <img src="assets/img/GitHubLog.PNG" style="max-width: 40%;" class="left" />
+                                <img src="assets/img/GitHubReps.PNG" style="max-width: 40%;" class="right" />
+
+                        </div>
+
 
                         <!-- ADD MORE SLIDES HERE AS REQUIRED -->
                         <!-- Copy and paste one of the slide examples above and edit it below -->
-                        <!-- All slide information should be placed within the following code (Uncomment code if using it) -->
+                        <!-- All slide information should be placed within the following div code (Uncomment the code below if using it) -->
 
                         <!-- <div class="slide-conts" data-current="a3" data-next="a1"> 
                         
                         </div> -->
-                        <!-- SLIDE 11  Testing -->
-                        <div class="slide-conts" data-current="a12" data-next="a1" data-prev="a11">
-                                <h1>TDD Example</h1>
-                                <br>
-                                <p> I provide a basic structure for the LoginSystem class and its corresponding test class LoginSystemTest in the following PDF file.</p>
-                                <br>
-
-                                <h3><a href="assets/Doc/TDD_example.pdf" target="_blank">TDD Example for Login System</a></h3>
-
-                        </div>
                                       
                         <!-- Buttons to go to next slide -->
                         <div class="slide-buttons">
